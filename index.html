@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEXTracker — Use Cases</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif;
+    background: #f5f6fa;
+    color: #1a1b23;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    background: #fff;
+    border-bottom: 1px solid #e8eaf0;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-logo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1b23;
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: #4f6ef7; }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a {
+    font-size: 0.875rem;
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links a:hover { background: #f0f2ff; color: #4f6ef7; }
+
+  /* HERO */
+  .hero {
+    background: #fff;
+    border-bottom: 1px solid #e8eaf0;
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #eef1ff;
+    color: #4f6ef7;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: #0f1117;
+    max-width: 700px;
+    margin: 0 auto 1.25rem;
+  }
+  .hero h1 span { color: #4f6ef7; }
+  .hero p {
+    font-size: 1.05rem;
+    color: #6b7280;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 1.5rem;
+  }
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .label-online { color: #4f6ef7; }
+  .label-offline { color: #10a37f; }
+  .section-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0f1117;
+    margin-bottom: 0.35rem;
+  }
+  .section-header p {
+    font-size: 0.95rem;
+    color: #6b7280;
+  }
+  .section-divider {
+    max-width: 1200px;
+    margin: 0 auto 1rem;
+    padding: 0 2rem;
+  }
+  .section-divider hr {
+    border: none;
+    border-top: 1.5px solid #e8eaf0;
+    margin-bottom: 1rem;
+  }
+
+  /* SUBSECTION */
+  .subsection-title {
+    max-width: 1200px;
+    margin: 2rem auto 1rem;
+    padding: 0 2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .subsection-title::after {
+    content: '';
+    flex: 1;
+    border-top: 1px solid #e8eaf0;
+  }
+
+  /* GRID */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 1.5rem;
+  }
+
+  /* CARD */
+  .card {
+    background: #fff;
+    border: 1px solid #e8eaf0;
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    box-shadow: 0 8px 32px rgba(79,110,247,0.09);
+    transform: translateY(-2px);
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 14px 14px 0 0;
+  }
+  .card.online::before { background: linear-gradient(90deg, #4f6ef7, #818cf8); }
+  .card.offline::before { background: linear-gradient(90deg, #10a37f, #34d399); }
+
+  .card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+    width: fit-content;
+    margin-bottom: -4px;
+  }
+  .tag-online { background: #eef1ff; color: #4f6ef7; }
+  .tag-offline { background: #ecfdf5; color: #059669; }
+  .tag-action { background: #fef3c7; color: #b45309; }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f1117;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+  }
+
+  .card-section { display: flex; flex-direction: column; gap: 4px; }
+  .card-section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+  .card-section-text {
+    font-size: 0.875rem;
+    color: #374151;
+    line-height: 1.6;
+  }
+
+  /* THINK BOX */
+  .think-box {
+    background: #f8f9ff;
+    border: 1px solid #dde2ff;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .think-box.offline-think {
+    background: #f0fdf9;
+    border-color: #a7f3d0;
+  }
+  .think-icon { font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+  .think-text {
+    font-size: 0.82rem;
+    color: #4338ca;
+    font-style: italic;
+    line-height: 1.55;
+  }
+  .think-text.offline-text { color: #065f46; }
+
+  /* RESPONSE STEPS */
+  .response-steps { display: flex; flex-direction: column; gap: 6px; }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: #374151;
+    line-height: 1.5;
+  }
+  .step-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .dot-online { background: #4f6ef7; }
+  .dot-offline { background: #10a37f; }
+  .step-sub {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #6b7280;
+    padding-left: 14px;
+    line-height: 1.5;
+  }
+  .step-arrow { color: #9ca3af; font-size: 10px; margin-top: 3px; flex-shrink: 0; }
+
+  /* OUTCOME */
+  .outcome-box {
+    background: #0f1117;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-top: auto;
+  }
+  .outcome-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+  .outcome-text {
+    font-size: 0.82rem;
+    color: #e5e7eb;
+    line-height: 1.55;
+  }
+  .outcome-box.offline-outcome { background: #064e3b; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 0.82rem;
+    color: #9ca3af;
+    border-top: 1px solid #e8eaf0;
+    margin-top: 3rem;
+    background: #fff;
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .hero { padding: 3rem 1.25rem 2.5rem; }
+    .section-header, .section-divider, .subsection-title { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .cards-grid { padding: 0 1.25rem 1.5rem; gap: 1rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">DEX<span>Tracker</span></div>
+  <div class="nav-links">
+    <a href="#online">Online</a>
+    <a href="#offline">Offline</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">&#9673; Product Use Cases</div>
+  <h1>Every visitor signal.<br><span>Converted into action.</span></h1>
+  <p>DEXTracker turns silent behavior into revenue opportunities — across online sessions, event leads, and the full offline-to-online journey.</p>
+</section>
+
+<!-- ONLINE SECTION -->
+<div id="online" class="section-header">
+  <div class="section-label label-online">&#9632; Online</div>
+  <h2>Website Intelligence & Personalization</h2>
+  <p>Identify, score, and activate visitors in real time — with or without a click.</p>
+</div>
+
+<div class="subsection-title">Silent Opportunities — No Action Required</div>
+
+<div class="cards-grid">
+
+  <!-- Card 1 -->
+  <div class="card online">
+    <div class="card-tag tag-online">Intent Signal</div>
+    <div class="card-title">Capture High-Intent Visitors Without Clicks</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">Visitor is browsing deeply, spending time, comparing — but never clicking on anything.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"This user is behaving like a buyer, even without explicit actions."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Calculates intent score in real time (depth, time, flow)</div>
+        <div class="step"><span class="step-dot dot-online"></span>Identifies top products/categories of interest</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers immediate action:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Show personalized offer (discount/bundle)</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Highlight urgency (low stock / trending)</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Prioritize visitor in live audience list</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Act on intent before clicks happen → convert ready-to-buy visitors at the right moment.</div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card online">
+    <div class="card-tag tag-online">Identity</div>
+    <div class="card-title">Identify & Convert Anonymous Visitors</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">A user visits the site but doesn't log in, sign up, or share any details.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"This might already be in our ecosystem — don't treat as cold traffic."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Attempts identity resolution (email lists, CRM, past sessions)</div>
+        <div class="step"><span class="step-dot dot-online"></span>Enriches profile using behavior + historical patterns</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers activation:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Sync to email/ads for retargeting</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Alert sales/CRM if high value</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Customize on-site experience if partially known</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Turn anonymous traffic into known leads → unlock revenue that was invisible before.</div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card online">
+    <div class="card-tag tag-online">Affinity</div>
+    <div class="card-title">Track Product & Category Interest via Passive Signals</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">A visitor repeatedly browses a specific category or product type without interacting.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"Clear preference detected — we should lean into it."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Builds real-time interest cluster (e.g., "premium knives", "bulk buyers")</div>
+        <div class="step"><span class="step-dot dot-online"></span>Assigns product/category affinity score</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers personalization:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Show relevant products first</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Push category-specific offers</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Feed retargeting audiences with exact interest</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Understand what users want → enable precise retargeting and smarter merchandising.</div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card online">
+    <div class="card-tag tag-online">Returning</div>
+    <div class="card-title">Detect Repeat Visitors Without Login</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">A user returns multiple times but never logs in or identifies themselves.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"This is not new traffic — this is a warming buyer."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Recognizes returning behavior across sessions/devices</div>
+        <div class="step"><span class="step-dot dot-online"></span>Escalates response based on visit count:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Visit 2–3: Show trust signals (reviews, guarantees)</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Visit 3–5: Introduce offer/incentive</div>
+        <div class="step-sub"><span class="step-arrow">→</span>High repeat: Trigger stronger conversion push</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Prioritize warm visitors → focus resources on users most likely to convert.</div>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card online">
+    <div class="card-tag tag-online">Journey</div>
+    <div class="card-title">Build Intent Profiles from Passive Behavior</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">Visitors browse, compare, and explore — but never take explicit actions.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"This user is moving through the buying journey — track progression."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Combines all signals into a unified intent profile</div>
+        <div class="step"><span class="step-dot dot-online"></span>Maps stage: Awareness → Consideration → Decision</div>
+        <div class="step"><span class="step-dot dot-online"></span>Activates stage-based actions:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Awareness: educate (content, comparisons)</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Consideration: differentiate (USPs, reviews)</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Decision: convert (offers, urgency)</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">See the full buyer journey → make smarter targeting and timing decisions.</div>
+    </div>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="card online">
+    <div class="card-tag tag-online">Nudge</div>
+    <div class="card-title">Trigger Soft Nudges Based on Behavior</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">A visitor shows interest but doesn't act — no cart, no signup, just hesitation.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"User is interested but unsure — don't push hard, guide softly."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Detects hesitation signals (idle time, repeat views, scroll patterns)</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers subtle nudges:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>"People also bought…"</div>
+        <div class="step-sub"><span class="step-arrow">→</span>"Only X left in stock"</div>
+        <div class="step-sub"><span class="step-arrow">→</span>"Popular choice among buyers like you"</div>
+        <div class="step"><span class="step-dot dot-online"></span>Personalizes nudge based on behavior + profile</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Gently push users toward action → increase conversions without being aggressive.</div>
+    </div>
+  </div>
+
+  <!-- Card 7 -->
+  <div class="card online">
+    <div class="card-tag tag-online">Recovery</div>
+    <div class="card-title">High-Intent Product Viewer — Missed Opportunity Recovery</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">A user visits the same product page multiple times but doesn't purchase.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"This is strong intent — convert before it's lost."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Detects repeated product interest and assigns high intent score</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers personalized outreach:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Email / WhatsApp: "Still thinking about this?"</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Smart discount / urgency trigger</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Pre-applied offer link</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Converts silent intent into revenue → captures customers traditional analytics miss entirely.</div>
+    </div>
+  </div>
+
+  <!-- Card 8 -->
+  <div class="card online">
+    <div class="card-tag tag-online">Personalization</div>
+    <div class="card-title">Known User Personalization — Adaptive Experience</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">A returning user visits the website.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"Every returning user should see a tailored experience."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Uses past purchases, browsing behavior, and preferences</div>
+        <div class="step"><span class="step-dot dot-online"></span>Dynamically adapts experience:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Personalized homepage</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Relevant products shown first</div>
+        <div class="step-sub"><span class="step-arrow">→</span>"Recommended for you" + custom deals</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Every user sees a different experience → higher engagement and repeat purchases.</div>
+    </div>
+  </div>
+
+  <!-- Card 9 -->
+  <div class="card online">
+    <div class="card-tag tag-online">Lifecycle</div>
+    <div class="card-title">Dormant Customer Reactivation</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">Customer hasn't visited or purchased in 60+ days.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"Reactivation is easier than acquisition."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Detects inactivity + past customer value</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers personalized reactivation:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>"We miss you" campaigns</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Tailored offers based on past interest</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Revives dormant customers → increases lifetime value (LTV) without paid acquisition spend.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ACTION-BASED SUBSECTION -->
+<div class="subsection-title">Action-Based Opportunities</div>
+
+<div class="cards-grid">
+
+  <!-- Card 10 -->
+  <div class="card online">
+    <div class="card-tag tag-action">Cart Recovery</div>
+    <div class="card-title">Recover Abandoned Carts in Real Time</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">User adds product to cart → drops out at checkout.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"Not all drop-offs are the same — recovery must be contextual."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Detects checkout drop-off behavior</div>
+        <div class="step"><span class="step-dot dot-online"></span>Identifies why user dropped and triggers contextual recovery:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Price-sensitive → discount offer</div>
+        <div class="step-sub"><span class="step-arrow">→</span>First-time buyer → trust signals</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Returning user → urgency nudge</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Context-based recovery → significantly higher conversion vs generic cart reminders.</div>
+    </div>
+  </div>
+
+  <!-- Card 11 -->
+  <div class="card online">
+    <div class="card-tag tag-action">Checkout Intent</div>
+    <div class="card-title">Trigger Offers on Add-to-Cart or Checkout Intent</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">User adds a product to the cart or initiates checkout.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"User is ready — a small push can close the deal."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Detects high-intent actions instantly</div>
+        <div class="step"><span class="step-dot dot-online"></span>Evaluates user type (new / repeat / high-value)</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers contextual incentives:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Bundle offers ("Add more & save")</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Limited-time discounts</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Free shipping nudges</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Increase conversion rate and AOV → maximize value at peak intent moment.</div>
+    </div>
+  </div>
+
+  <!-- Card 12 -->
+  <div class="card online">
+    <div class="card-tag tag-action">Lead Capture</div>
+    <div class="card-title">Capture Leads from Form Interactions or Clicks</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">User starts filling a form or clicks a CTA but may not submit.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"User is engaging — don't lose this opportunity."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Tracks partial form fills and interaction signals</div>
+        <div class="step"><span class="step-dot dot-online"></span>Captures available lead data even if incomplete</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers continuation actions:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Save partial lead information</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Retarget via email/ads</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Optimize form dynamically to reduce friction</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Capture more leads without requiring a full submission → increase lead volume from existing traffic.</div>
+    </div>
+  </div>
+
+  <!-- Card 13 -->
+  <div class="card online">
+    <div class="card-tag tag-action">Retargeting</div>
+    <div class="card-title">Retarget Users Based on Specific Actions</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">User views products, clicks CTAs, or adds to cart but doesn't convert.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"We know exactly what they want — retarget precisely."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Segments users based on exact actions taken</div>
+        <div class="step"><span class="step-dot dot-online"></span>Builds real-time high-intent audiences</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers targeted campaigns:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Product-specific ads</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Cart reminders</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Personalized follow-ups</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Highly relevant retargeting → better ROI → convert with precision, not guesswork.</div>
+    </div>
+  </div>
+
+  <!-- Card 14 -->
+  <div class="card online">
+    <div class="card-tag tag-action">Messaging</div>
+    <div class="card-title">Personalize Messaging Based on Engagement Signals</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">User actively engages — scrolling, clicking, interacting with content.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"Engagement tells us what message will resonate."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Measures engagement depth and interaction patterns</div>
+        <div class="step"><span class="step-dot dot-online"></span>Adapts messaging dynamically:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Highlight relevant benefits</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Show targeted testimonials or social proof</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Adjust tone based on intent level</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Deliver more relevant experiences → increase trust and conversion efficiency.</div>
+    </div>
+  </div>
+
+  <!-- Card 15 -->
+  <div class="card online">
+    <div class="card-tag tag-action">Prioritization</div>
+    <div class="card-title">Prioritize High-Intent Users from Clicks & Forms</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">User performs strong actions like clicking key CTAs, submitting forms, or deep engagement.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"This is a high-probability buyer — prioritize immediately."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Assigns high intent score based on actions</div>
+        <div class="step"><span class="step-dot dot-online"></span>Flags users as conversion-ready</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers prioritization:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Push to CRM/sales instantly</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Prioritize in retargeting campaigns</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Show strongest conversion triggers on-site</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Focus on users most likely to convert → faster conversions and higher sales efficiency.</div>
+    </div>
+  </div>
+
+  <!-- Card 16 -->
+  <div class="card online">
+    <div class="card-tag tag-action">Exit Intent</div>
+    <div class="card-title">Real-Time Exit Intent Recovery</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">User is about to leave the website.</p>
+    </div>
+    <div class="think-box">
+      <span class="think-icon">💡</span>
+      <span class="think-text">"This session can still be saved — act instantly."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-online"></span>Detects exit behavior in real time</div>
+        <div class="step"><span class="step-dot dot-online"></span>Triggers immediate intervention:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Discount / free shipping popup</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Limited-time deal</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Smart recommendation</div>
+      </div>
+    </div>
+    <div class="outcome-box">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Saves conversions before they are lost → immediate revenue impact on exit sessions.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- OFFLINE SECTION -->
+<div class="section-divider" style="margin-top: 2.5rem;"><hr></div>
+
+<div id="offline" class="section-header" style="padding-top: 1.5rem;">
+  <div class="section-label label-offline">&#9632; Offline</div>
+  <h2>Event Lead Capture & Activation</h2>
+  <p>Turn trade show leads and offline interactions into a structured, behavior-driven conversion funnel.</p>
+</div>
+
+<div class="cards-grid">
+
+  <!-- Offline Card 1 -->
+  <div class="card offline">
+    <div class="card-tag tag-offline">Event Activation</div>
+    <div class="card-title">Trade Show Lead Capture & Activation</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">Company participates in a trade show and collects leads via booth visits, QR scans, or sign-ups.</p>
+    </div>
+    <div class="think-box offline-think">
+      <span class="think-icon">💡</span>
+      <span class="think-text offline-text">"Event leads should be structured, tracked, and activated — not just stored."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-offline"></span>Step 1 — Capture & Structure: Create dedicated list per event, tag by source</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Step 2 — Track & Enrich: Monitor website visits post-event, identify interest level</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Step 3 — Activate: Trigger behavior-based emails and dynamic offers per lead</div>
+      </div>
+    </div>
+    <div class="outcome-box offline-outcome">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Scattered leads + generic campaigns → structured, behavior-driven funnel with significantly improved ROI.</div>
+    </div>
+  </div>
+
+  <!-- Offline Card 2 -->
+  <div class="card offline">
+    <div class="card-tag tag-offline">Identity</div>
+    <div class="card-title">Assign Unique User IDs to Event Visitors</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">Users interact at an event but may engage later online via website or campaigns.</p>
+    </div>
+    <div class="think-box offline-think">
+      <span class="think-icon">💡</span>
+      <span class="think-text offline-text">"This journey must stay connected across offline → online."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-offline"></span>Assigns a unique identifier to each event lead</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Links this ID across email, website visits, and campaigns</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Tracks the full lifecycle across all touchpoints</div>
+      </div>
+    </div>
+    <div class="outcome-box offline-outcome">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">One unified user journey across channels → no broken attribution or duplicated users.</div>
+    </div>
+  </div>
+
+  <!-- Offline Card 3 -->
+  <div class="card offline">
+    <div class="card-tag tag-offline">Engagement</div>
+    <div class="card-title">Track Engagement from Event-Originated Campaigns</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">You send emails or ads to attendees after the event.</p>
+    </div>
+    <div class="think-box offline-think">
+      <span class="think-icon">💡</span>
+      <span class="think-text offline-text">"Post-event engagement shows real buying intent — track deeply."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-offline"></span>Tracks opens, clicks, and website behavior from event campaigns</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Connects engagement back to the original event source</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Measures movement toward conversion per lead</div>
+      </div>
+    </div>
+    <div class="outcome-box offline-outcome">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Clear visibility into who is actually interested → focus on engaged, not just collected leads.</div>
+    </div>
+  </div>
+
+  <!-- Offline Card 4 -->
+  <div class="card offline">
+    <div class="card-tag tag-offline">Follow-Up</div>
+    <div class="card-title">Send Personalized Follow-Ups Based on Event Interaction</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">Different visitors showed interest in different products or conversations at the event.</p>
+    </div>
+    <div class="think-box offline-think">
+      <span class="think-icon">💡</span>
+      <span class="think-text offline-text">"Follow-up should reflect what each user actually cared about."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-offline"></span>Captures product interest and interaction context at the event</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Segments users based on interest + behavior</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Triggers personalized follow-ups:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Product-specific emails</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Custom offers and relevant demos</div>
+      </div>
+    </div>
+    <div class="outcome-box offline-outcome">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">More relevant follow-ups → higher response rates → turn conversations into conversions.</div>
+    </div>
+  </div>
+
+  <!-- Offline Card 5 -->
+  <div class="card offline">
+    <div class="card-tag tag-offline">Segmentation</div>
+    <div class="card-title">Segment Leads by Event & Product Interest</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">You have a large pool of event leads with varying interests and engagement levels.</p>
+    </div>
+    <div class="think-box offline-think">
+      <span class="think-icon">💡</span>
+      <span class="think-text offline-text">"Not all leads are equal — segment for precision."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-offline"></span>Segments users by event source, product interest, and engagement level</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Creates highly targeted audience buckets for each segment</div>
+      </div>
+    </div>
+    <div class="outcome-box offline-outcome">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Better targeting and messaging accuracy → higher conversion efficiency per segment.</div>
+    </div>
+  </div>
+
+  <!-- Offline Card 6 -->
+  <div class="card offline">
+    <div class="card-tag tag-offline">Nurturing</div>
+    <div class="card-title">Enable Targeted Post-Event Nurturing Campaigns</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">Most event leads are not ready to buy immediately.</p>
+    </div>
+    <div class="think-box offline-think">
+      <span class="think-icon">💡</span>
+      <span class="think-text offline-text">"Nurture based on intent, not generic drip campaigns."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-offline"></span>Tracks post-event behavior across sessions</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Identifies journey stage per lead and triggers stage-based nurturing:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Early stage: education content</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Consideration: case studies</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Decision stage: offers and urgency</div>
+      </div>
+    </div>
+    <div class="outcome-box offline-outcome">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Smarter nurturing → better long-term conversions → no more generic follow-ups.</div>
+    </div>
+  </div>
+
+  <!-- Offline Card 7 -->
+  <div class="card offline">
+    <div class="card-tag tag-offline">Attribution</div>
+    <div class="card-title">Measure ROI per Event — End-to-End Attribution</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">You invest in events but struggle to measure actual return on investment.</p>
+    </div>
+    <div class="think-box offline-think">
+      <span class="think-icon">💡</span>
+      <span class="think-text offline-text">"Every event must tie back to revenue."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-offline"></span>Tracks each user from event → website → conversion</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Attributes revenue back to specific event</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Provides performance metrics per event (leads, engagement, conversions)</div>
+      </div>
+    </div>
+    <div class="outcome-box offline-outcome">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Clear ROI visibility per event → invest in what actually drives revenue.</div>
+    </div>
+  </div>
+
+  <!-- Offline Card 8 -->
+  <div class="card offline">
+    <div class="card-tag tag-offline">CRM Sync</div>
+    <div class="card-title">Sync Event Leads with CRM — Unified System</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">Event leads need to be managed and followed up by sales teams.</p>
+    </div>
+    <div class="think-box offline-think">
+      <span class="think-icon">💡</span>
+      <span class="think-text offline-text">"Sales should not work with raw data — give them context."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-offline"></span>Syncs leads to CRM with unique identifiers</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Enriches profiles with event source, behavior data, and intent score</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Keeps data updated in real time</div>
+      </div>
+    </div>
+    <div class="outcome-box offline-outcome">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Sales gets enriched, actionable leads → better follow-ups and higher close rates.</div>
+    </div>
+  </div>
+
+  <!-- Offline Card 9 -->
+  <div class="card offline">
+    <div class="card-tag tag-offline">Sales Priority</div>
+    <div class="card-title">Prioritize High-Intent Event Leads for Sales</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">Not all event leads are equally valuable or conversion-ready.</p>
+    </div>
+    <div class="think-box offline-think">
+      <span class="think-icon">💡</span>
+      <span class="think-text offline-text">"Sales should focus where conversion probability is highest."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-offline"></span>Scores leads based on post-event behavior (clicks, visits, actions)</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Identifies "hot" leads vs cold leads in real time</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Triggers prioritization:</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Alerts sales team instantly</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Pushes high-intent leads to top of pipeline</div>
+        <div class="step-sub"><span class="step-arrow">→</span>Suggests next best action</div>
+      </div>
+    </div>
+    <div class="outcome-box offline-outcome">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Faster conversions with focused sales effort → maximize ROI from event leads.</div>
+    </div>
+  </div>
+
+  <!-- Offline Card 10 -->
+  <div class="card offline">
+    <div class="card-tag tag-offline">Full Funnel</div>
+    <div class="card-title">Lead → Sales → Offline Conversion Tracking</div>
+    <div class="card-section">
+      <span class="card-section-label">Scenario</span>
+      <p class="card-section-text">User visits → submits lead → talks to sales → buys offline. Marketing loses visibility after the website.</p>
+    </div>
+    <div class="think-box offline-think">
+      <span class="think-icon">💡</span>
+      <span class="think-text offline-text">"The journey doesn't end online — track revenue completely."</span>
+    </div>
+    <div class="card-section">
+      <span class="card-section-label">DEXTracker Response</span>
+      <div class="response-steps">
+        <div class="step"><span class="step-dot dot-offline"></span>Tracks full journey: Website → Lead → Sales → Offline purchase</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Connects revenue back to originating source</div>
+        <div class="step"><span class="step-dot dot-offline"></span>Identifies highest-performing campaigns end to end</div>
+      </div>
+    </div>
+    <div class="outcome-box offline-outcome">
+      <div class="outcome-label">Outcome</div>
+      <div class="outcome-text">Complete funnel visibility → no more lost attribution → know exactly what drives offline revenue.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 DEXTracker &nbsp;·&nbsp; Behavioral Intelligence for Revenue Teams
+</footer>
+
+</body>
+</html>
