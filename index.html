@@ -1,1109 +1,795 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 🔐 PASSWORD PROTECTION -->
-<script>
-  const correctPassword = "Dexdex2!";
-
-  const entered = prompt("Enter password to access:");
-
-  if (entered !== correctPassword) {
-    document.write("<h1 style='font-family:sans-serif;text-align:center;margin-top:20%;'>Access Denied</h1>");
-    document.stop();
-  }
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DEXTracker — Use Cases</title>
+<title>ScopeCompare | Athlon Ares ETR UHD 4.5-30x56 APRS1 FFP IR MIL (212100)</title>
+<meta name="description" content="Compare prices, official documents, product images, and official videos for the Athlon Ares ETR UHD 4.5-30x56 APRS1 FFP IR MIL on ScopeCompare.">
+<meta property="og:title" content="ScopeCompare | Athlon Ares ETR UHD 4.5-30x56 APRS1 FFP IR MIL">
+<meta property="og:description" content="Price comparison, official PDFs, official videos, and full product details in one cleaner buying page.">
+<meta property="og:type" content="product">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+  :root {
+    --cream: #f1ead8;
+    --cream-2: #fcf7ee;
+    --bone: #ddd2bb;
+    --olive: #667044;
+    --olive-deep: #49542f;
+    --olive-soft: #d8dec8;
+    --charcoal: #223027;
+    --charcoal-2: #162019;
+    --orange: #c66a31;
+    --orange-deep: #a85624;
+    --ink: #23251f;
+    --muted: #676a5d;
+    --line: rgba(57, 69, 39, 0.18);
+    --white: #fffdf8;
+    --shadow: 0 20px 45px rgba(24, 33, 27, 0.08);
+    --mono: 'IBM Plex Mono', monospace;
+    --display: 'Fraunces', serif;
+    --body: 'DM Sans', sans-serif;
+  }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif;
-    background: #f5f6fa;
-    color: #1a1b23;
+    font-family: var(--body);
+    background:
+      radial-gradient(circle at top left, rgba(198,106,49,0.11), transparent 26%),
+      linear-gradient(180deg, #f7f0e3 0%, var(--cream) 100%);
+    color: var(--ink);
     line-height: 1.6;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
   }
-
-  /* NAV */
-  nav {
-    background: #fff;
-    border-bottom: 1px solid #e8eaf0;
-    padding: 0 2rem;
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+  .site-top {
+    background: linear-gradient(90deg, var(--charcoal-2), var(--charcoal));
+    color: rgba(255,248,238,0.92);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+  .brand {
+    font-family: var(--display);
+    font-size: 28px;
+    letter-spacing: 0.02em;
+    color: #fff8ee;
+  }
+  .top-links {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-logo {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #1a1b23;
-    letter-spacing: -0.02em;
-  }
-  .nav-logo span { color: #4f6ef7; }
-  .nav-links { display: flex; gap: 1.5rem; }
-  .nav-links a {
-    font-size: 0.875rem;
-    color: #555;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 4px 8px;
-    border-radius: 6px;
-    transition: background 0.15s, color 0.15s;
-  }
-  .nav-links a:hover { background: #f0f2ff; color: #4f6ef7; }
-
-  /* HERO */
-  .hero {
-    background: #fff;
-    border-bottom: 1px solid #e8eaf0;
-    padding: 5rem 2rem 4rem;
-    text-align: center;
-  }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #eef1ff;
-    color: #4f6ef7;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-family: var(--mono);
+    font-size: 11px;
     text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 999px;
-    margin-bottom: 1.5rem;
+    letter-spacing: 0.08em;
   }
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.15;
-    color: #0f1117;
-    max-width: 700px;
-    margin: 0 auto 1.25rem;
+  .hero-wrap { padding: 26px 0 40px; }
+  .hero-card {
+    background: linear-gradient(180deg, rgba(255,253,248,0.97), rgba(241,233,218,0.98));
+    border: 1px solid rgba(79,90,48,0.16);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
   }
-  .hero h1 span { color: #4f6ef7; }
-  .hero p {
-    font-size: 1.05rem;
-    color: #6b7280;
-    max-width: 560px;
-    margin: 0 auto;
-    line-height: 1.7;
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(360px, 0.96fr) minmax(0, 1.04fr);
   }
-
-  /* SECTION HEADERS */
-  .section-header {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3.5rem 2rem 1.5rem;
-  }
-  .section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.7rem;
-    font-weight: 700;
+  .hero-copy { padding: 42px 40px 34px; }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    color: var(--olive);
+    margin-bottom: 12px;
   }
-  .label-online { color: #4f6ef7; }
-  .label-offline { color: #10a37f; }
-  .section-header h2 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: #0f1117;
-    margin-bottom: 0.35rem;
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(30px, 5vw, 52px);
+    line-height: 1.04;
+    margin-bottom: 12px;
+    max-width: 11ch;
   }
-  .section-header p {
-    font-size: 0.95rem;
-    color: #6b7280;
+  .subline {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 18px;
   }
-  .section-divider {
-    max-width: 1200px;
-    margin: 0 auto 1rem;
-    padding: 0 2rem;
+  .lead {
+    font-size: 18px;
+    max-width: 46ch;
+    color: #37402b;
+    margin-bottom: 22px;
   }
-  .section-divider hr {
-    border: none;
-    border-top: 1.5px solid #e8eaf0;
-    margin-bottom: 1rem;
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 22px;
   }
-
-  /* SUBSECTION */
-  .subsection-title {
-    max-width: 1200px;
-    margin: 2rem auto 1rem;
-    padding: 0 2rem;
-    font-size: 0.8rem;
-    font-weight: 700;
+  .stat {
+    background: rgba(255,253,248,0.8);
+    border: 1px solid rgba(79,90,48,0.14);
+    border-radius: 18px;
+    padding: 14px 15px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #9ca3af;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    color: var(--muted);
+    margin-bottom: 5px;
   }
-  .subsection-title::after {
-    content: '';
-    flex: 1;
-    border-top: 1px solid #e8eaf0;
-  }
-
-  /* GRID */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.25rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem 1.5rem;
-  }
-
-  /* CARD */
-  .card {
-    background: #fff;
-    border: 1px solid #e8eaf0;
-    border-radius: 14px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    transition: box-shadow 0.2s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .card:hover {
-    box-shadow: 0 8px 32px rgba(79,110,247,0.09);
-    transform: translateY(-2px);
-  }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    border-radius: 14px 14px 0 0;
-  }
-  .card.online::before { background: linear-gradient(90deg, #4f6ef7, #818cf8); }
-  .card.offline::before { background: linear-gradient(90deg, #10a37f, #34d399); }
-
-  .card-tag {
+  .stat-value { font-family: var(--mono); font-size: 15px; color: var(--ink); }
+  .stat-value.good { color: var(--olive-deep); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; }
+  .btn {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    padding: 3px 9px;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
     border-radius: 999px;
-    width: fit-content;
-    margin-bottom: -4px;
-  }
-  .tag-online { background: #eef1ff; color: #4f6ef7; }
-  .tag-offline { background: #ecfdf5; color: #059669; }
-  .tag-action { background: #fef3c7; color: #b45309; }
-
-  .card-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #0f1117;
-    letter-spacing: -0.01em;
-    line-height: 1.35;
-  }
-
-  .card-section { display: flex; flex-direction: column; gap: 4px; }
-  .card-section-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.09em;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #9ca3af;
+    border: 1px solid transparent;
+    transition: 0.18s ease;
   }
-  .card-section-text {
-    font-size: 0.875rem;
-    color: #374151;
-    line-height: 1.6;
+  .btn.primary { background: var(--orange); color: #fff8f2; }
+  .btn.primary:hover { background: var(--orange-deep); }
+  .btn.secondary { border-color: rgba(79,90,48,0.2); color: var(--olive-deep); background: transparent; }
+  .btn.secondary:hover { background: rgba(79,90,48,0.06); }
+  .updated { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .hero-side {
+    background:
+      linear-gradient(180deg, rgba(102,112,68,0.18), rgba(255,248,238,0.44)),
+      radial-gradient(circle at top right, rgba(198,106,49,0.08), transparent 30%);
+    border-right: 1px solid rgba(79,90,48,0.14);
+    padding: 28px;
   }
-
-  /* THINK BOX */
-  .think-box {
-    background: #f8f9ff;
-    border: 1px solid #dde2ff;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
+  .gallery-shell {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+  .thumbs { display: grid; gap: 12px; }
+  .thumb {
+    background: rgba(255,253,248,0.82);
+    border: 1px solid rgba(79,90,48,0.14);
+    border-radius: 16px;
+    padding: 8px;
+    aspect-ratio: 1;
+  }
+  .thumb img, .main-shot img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+  .main-shot {
+    background: rgba(255,253,248,0.88);
+    border: 1px solid rgba(79,90,48,0.14);
+    border-radius: 24px;
+    padding: 22px;
+    min-height: 420px;
+  }
+  .gallery-note {
+    margin-top: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .page-sections { padding-bottom: 48px; }
+  section { margin-bottom: 28px; }
+  .section-card {
+    background: rgba(255,253,248,0.9);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: 0 12px 28px rgba(24,33,27,0.04);
+    overflow: hidden;
+  }
+  .compact-section .section-body { padding-top: 0; padding-bottom: 18px; }
+  .compact-section .text-box,
+  .compact-section .side-panel { padding: 16px; }
+  .section-head {
     display: flex;
-    align-items: flex-start;
-    gap: 8px;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: end;
+    padding: 22px 24px 12px;
   }
-  .think-box.offline-think {
-    background: #f0fdf9;
-    border-color: #a7f3d0;
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
   }
-  .think-icon { font-size: 14px; margin-top: 1px; flex-shrink: 0; }
-  .think-text {
-    font-size: 0.82rem;
-    color: #4338ca;
-    font-style: italic;
-    line-height: 1.55;
+  .section-title {
+    font-family: var(--display);
+    font-size: 28px;
+    line-height: 1.1;
   }
-  .think-text.offline-text { color: #065f46; }
-
-  /* RESPONSE STEPS */
-  .response-steps { display: flex; flex-direction: column; gap: 6px; }
-  .step {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 0.82rem;
-    color: #374151;
-    line-height: 1.5;
+  .section-body { padding: 0 24px 24px; }
+  .intro { color: var(--muted); max-width: 80ch; margin-bottom: 18px; }
+  .table-wrap { border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; }
+  thead { background: #ece3d1; }
+  th {
+    text-align: left;
+    padding: 12px 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
   }
-  .step-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+  td { padding: 14px; border-top: 1px solid var(--line); vertical-align: top; }
+  tbody tr:hover { background: rgba(105,115,67,0.05); }
+  .retailer { font-weight: 700; }
+  .retailer-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .price { font-family: var(--mono); font-size: 15px; }
+  .badge {
+    display: inline-block;
     margin-top: 6px;
-    flex-shrink: 0;
-  }
-  .dot-online { background: #4f6ef7; }
-  .dot-offline { background: #10a37f; }
-  .step-sub {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 0.8rem;
-    color: #6b7280;
-    padding-left: 14px;
-    line-height: 1.5;
-  }
-  .step-arrow { color: #9ca3af; font-size: 10px; margin-top: 3px; flex-shrink: 0; }
-
-  /* OUTCOME */
-  .outcome-box {
-    background: #0f1117;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    margin-top: auto;
-  }
-  .outcome-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    margin-right: 6px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 10px;
     text-transform: uppercase;
-    color: #6b7280;
-    margin-bottom: 4px;
+    letter-spacing: 0.05em;
   }
-  .outcome-text {
-    font-size: 0.82rem;
-    color: #e5e7eb;
-    line-height: 1.55;
+  .badge.best { background: var(--olive-soft); color: var(--olive-deep); }
+  .badge.code { background: #f4dccb; color: var(--orange-deep); }
+  .rating-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #eef2e6;
+    color: var(--olive-deep);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
   }
-  .outcome-box.offline-outcome { background: #064e3b; }
-
-  /* FOOTER */
-  footer {
+  .history-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 16px;
+    margin-top: 18px;
+  }
+  .history-card,
+  .history-summary,
+  .comparison-wrap,
+  .recent-grid .link-card {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: #fffaf1;
+  }
+  .history-card { padding: 18px; }
+  .history-bars {
+    display: grid;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .history-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 72px;
+    gap: 10px;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .history-track {
+    height: 10px;
+    border-radius: 999px;
+    background: #e9e0cf;
+    overflow: hidden;
+  }
+  .history-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--olive), var(--orange));
+  }
+  .history-summary {
+    padding: 18px;
+    display: grid;
+    gap: 10px;
+  }
+  .summary-chip {
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #eef3e4, #e2e8d1);
+    border: 1px solid rgba(73,84,47,0.12);
+  }
+  .prose-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; }
+  .modern-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr); gap: 18px; }
+  .text-box {
+    background: linear-gradient(180deg, #f1f4e8 0%, #e4ead5 100%);
+    border: 1px solid rgba(79,90,48,0.14);
+    border-radius: 18px;
+    padding: 18px;
+  }
+  .text-box p + p { margin-top: 10px; }
+  .support-stack { display: grid; gap: 12px; }
+  .side-panel {
+    background: #fffaf1;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 18px;
+  }
+  .stack-panel {
+    display: grid;
+    gap: 14px;
+  }
+  .mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .mini-card {
+    background: rgba(255,253,248,0.98);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px;
+  }
+  .review-overview {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .score-card {
+    background: linear-gradient(180deg, #edf3e4 0%, #dde6cc 100%);
+    border: 1px solid rgba(79,90,48,0.12);
+    border-radius: 20px;
+    padding: 18px;
     text-align: center;
-    padding: 3rem 2rem;
-    font-size: 0.82rem;
-    color: #9ca3af;
-    border-top: 1px solid #e8eaf0;
-    margin-top: 3rem;
-    background: #fff;
   }
-
-  @media (max-width: 640px) {
-    nav { padding: 0 1rem; }
-    .nav-links { display: none; }
-    .hero { padding: 3rem 1.25rem 2.5rem; }
-    .section-header, .section-divider, .subsection-title { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .cards-grid { padding: 0 1.25rem 1.5rem; gap: 1rem; }
-    .cards-grid { grid-template-columns: 1fr; }
+  .score-big {
+    font-family: var(--display);
+    font-size: 52px;
+    line-height: 1;
+    color: var(--olive-deep);
+  }
+  .score-sub {
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  .review-bars {
+    display: grid;
+    gap: 10px;
+  }
+  .review-row {
+    display: grid;
+    grid-template-columns: 54px 1fr 54px;
+    gap: 10px;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .review-track {
+    height: 9px;
+    border-radius: 999px;
+    background: #e8dfcd;
+    overflow: hidden;
+  }
+  .review-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--olive), var(--orange));
+  }
+  .side-panel h3, .block-title { font-family: var(--display); font-size: 18px; margin-bottom: 10px; }
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .spec-grid div { padding: 12px 14px; border-top: 1px solid var(--line); }
+  .spec-grid div:nth-child(-n+2) { border-top: 0; }
+  .spec-grid .key { background: #efe6d7; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .spec-grid .val { background: #fffdf8; font-weight: 500; }
+  .docs-grid, .video-grid, .links-grid, .search-grid, .faq-grid { display: grid; gap: 14px; }
+  .comparison-wrap { overflow: hidden; margin-bottom: 18px; }
+  .comparison-wrap table tbody tr td:first-child { font-weight: 700; }
+  .recent-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .docs-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .links-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .search-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .doc-card, .video-card, .link-card, .search-card, .faq-card {
+    background: rgba(255,253,248,0.95);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 16px;
+  }
+  .doc-card p, .video-card p, .link-card p, .search-card p, .faq-card p { color: var(--muted); font-size: 14px; }
+  .doc-meta, .link-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .video-thumb {
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 1px solid var(--line);
+  }
+  .arrow-link { display: inline-flex; gap: 8px; align-items: center; color: var(--orange-deep); font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 12px; }
+  .footer {
+    background: linear-gradient(180deg, var(--charcoal), var(--charcoal-2));
+    color: rgba(255,248,238,0.82);
+    padding: 28px 0;
+    margin-top: 44px;
+  }
+  .footer .container { display: grid; gap: 10px; }
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  @media (max-width: 1080px) {
+    .hero-grid, .prose-grid, .docs-grid, .video-grid, .links-grid, .search-grid, .history-grid, .recent-grid, .modern-grid, .review-overview { grid-template-columns: 1fr; }
+    .hero-side { border-right: 0; border-bottom: 1px solid rgba(79,90,48,0.14); }
+  }
+  @media (max-width: 720px) {
+    .top-inner { align-items: flex-start; flex-direction: column; }
+    .stats, .gallery-shell, .spec-grid, .mini-grid { grid-template-columns: 1fr; }
+    .thumbs { grid-template-columns: repeat(4, 1fr); }
+    .main-shot { min-height: 280px; }
+    .section-head { flex-direction: column; align-items: flex-start; }
+    .search-grid { grid-template-columns: 1fr; }
+    table th:nth-child(3), table td:nth-child(3) { display: none; }
   }
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-logo">DEX<span>Tracker</span></div>
-  <div class="nav-links">
-    <a href="#online">Online</a>
-    <a href="#offline">Offline</a>
+<div class="site-top">
+  <div class="container top-inner">
+    <div class="brand">ScopeCompare</div>
+    <div class="top-links">
+      <a href="#">Home</a>
+      <a href="#">Rifle Scopes</a>
+      <a href="#">Thermals</a>
+      <a href="#">Rangefinders</a>
+      <a href="#">Spotting Scopes</a>
+      <a href="#">Deals</a>
+      <a href="#">Buyer's Guides</a>
+      <a href="#">Contact</a>
+    </div>
   </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">&#9673; Product Use Cases</div>
-  <h1>Every visitor signal.<br><span>Converted into action.</span></h1>
-  <p>DEXTracker turns silent behavior into revenue opportunities — across online sessions, event leads, and the full offline-to-online journey.</p>
-</section>
-
-<!-- ONLINE SECTION -->
-<div id="online" class="section-header">
-  <div class="section-label label-online">&#9632; Online</div>
-  <h2>Website Intelligence & Personalization</h2>
-  <p>Identify, score, and activate visitors in real time — with or without a click.</p>
 </div>
-
-<div class="subsection-title">Silent Opportunities — No Action Required</div>
-
-<div class="cards-grid">
-
-  <!-- Card 1 -->
-  <div class="card online">
-    <div class="card-tag tag-online">Intent Signal</div>
-    <div class="card-title">Capture High-Intent Visitors Without Clicks</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">Visitor is browsing deeply, spending time, comparing — but never clicking on anything.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"This user is behaving like a buyer, even without explicit actions."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Calculates intent score in real time (depth, time, flow)</div>
-        <div class="step"><span class="step-dot dot-online"></span>Identifies top products/categories of interest</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers immediate action:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Show personalized offer (discount/bundle)</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Highlight urgency (low stock / trending)</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Prioritize visitor in live audience list</div>
+<div class="hero-wrap">
+  <div class="container">
+    <div class="hero-card">
+      <div class="hero-grid">
+        <aside class="hero-side">
+          <div class="gallery-shell">
+            <div class="thumbs">
+              <a class="thumb" href="https://athlonoptics.com/wp-content/uploads/2017/12/212100-Ares-ETR-UHD-4.5-30x56-APRS1-FFP-IR-MIL-Gray-BG-ISO-600x600.jpg" target="_blank" rel="noopener"><img src="https://athlonoptics.com/wp-content/uploads/2017/12/212100-Ares-ETR-UHD-4.5-30x56-APRS1-FFP-IR-MIL-Gray-BG-ISO-600x600.jpg" alt="Athlon Ares ETR official product image angle 1"></a>
+              <a class="thumb" href="https://athlonoptics.com/wp-content/uploads/2017/12/212100-Ares-ETR-UHD-4.5-30x56-APRS1-FFP-IR-MIL-Gray-BG-600x600.jpg" target="_blank" rel="noopener"><img src="https://athlonoptics.com/wp-content/uploads/2017/12/212100-Ares-ETR-UHD-4.5-30x56-APRS1-FFP-IR-MIL-Gray-BG-600x600.jpg" alt="Athlon Ares ETR official product image angle 2"></a>
+              <a class="thumb" href="https://athlonoptics.com/wp-content/uploads/2017/12/212100_APRS1-FFP-IR-MIL-4_5X-gray-600x600.jpg" target="_blank" rel="noopener"><img src="https://athlonoptics.com/wp-content/uploads/2017/12/212100_APRS1-FFP-IR-MIL-4_5X-gray-600x600.jpg" alt="Athlon APRS1 reticle 4.5x official image"></a>
+              <a class="thumb" href="https://athlonoptics.com/wp-content/uploads/2017/12/212100_APRS1-FFP-IR-MIL-30X-gray-600x600.jpg" target="_blank" rel="noopener"><img src="https://athlonoptics.com/wp-content/uploads/2017/12/212100_APRS1-FFP-IR-MIL-30X-gray-600x600.jpg" alt="Athlon APRS1 reticle 30x official image"></a>
+            </div>
+            <div>
+              <div class="main-shot">
+                <img src="https://athlonoptics.com/wp-content/uploads/2017/12/212100-Ares-ETR-UHD-4.5-30x56-APRS1-FFP-IR-MIL-Gray-BG-ISO-600x600.jpg" alt="Athlon Ares ETR UHD 4.5-30x56 APRS1 FFP IR MIL main official image">
+              </div>
+              <div class="gallery-note">Official product gallery on the left for faster visual comparison</div>
+            </div>
+          </div>
+        </aside>
+        <div class="hero-copy">
+          <div class="kicker">ScopeCompare | Precision Optics Price Tracker</div>
+          <h1>Athlon Ares ETR UHD 4.5-30x56 APRS1 FFP IR MIL</h1>
+          <div class="subline">SKU 212100 | UPC 813869021211 | MSRP $1,437.49</div>
+          <p class="lead">A calmer, easier-to-read comparison page for shoppers deciding between live retailer pricing, official Athlon documents, and official product media.</p>
+          <div class="stats">
+            <div class="stat"><div class="stat-label">Lowest Price Today</div><div class="stat-value good">$674.99 with code</div></div>
+            <div class="stat"><div class="stat-label">Active Sellers</div><div class="stat-value">4 to 6 retailers</div></div>
+            <div class="stat"><div class="stat-label">Scope Type</div><div class="stat-value">FFP | MIL | 34mm</div></div>
+            <div class="stat"><div class="stat-label">Ideal Use</div><div class="stat-value">PRS | Long Range | Steel</div></div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="#price-comparison">Compare Prices</a>
+            <a class="btn secondary" href="https://athlonoptics.com/product/ares-etr-uhd-4-5-30x56-aprs1-ffp-ir-mil/" target="_blank" rel="noopener">Official Product Page</a>
+          </div>
+          <div class="updated">Last updated: April 16, 2026 | Official media, PDFs, and retailer links included below.</div>
+        </div>
       </div>
     </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Act on intent before clicks happen → convert ready-to-buy visitors at the right moment.</div>
-    </div>
   </div>
-
-  <!-- Card 2 -->
-  <div class="card online">
-    <div class="card-tag tag-online">Identity</div>
-    <div class="card-title">Identify & Convert Anonymous Visitors</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">A user visits the site but doesn't log in, sign up, or share any details.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"This might already be in our ecosystem — don't treat as cold traffic."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Attempts identity resolution (email lists, CRM, past sessions)</div>
-        <div class="step"><span class="step-dot dot-online"></span>Enriches profile using behavior + historical patterns</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers activation:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Sync to email/ads for retargeting</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Alert sales/CRM if high value</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Customize on-site experience if partially known</div>
-      </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Turn anonymous traffic into known leads → unlock revenue that was invisible before.</div>
-    </div>
-  </div>
-
-  <!-- Card 3 -->
-  <div class="card online">
-    <div class="card-tag tag-online">Affinity</div>
-    <div class="card-title">Track Product & Category Interest via Passive Signals</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">A visitor repeatedly browses a specific category or product type without interacting.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"Clear preference detected — we should lean into it."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Builds real-time interest cluster (e.g., "premium knives", "bulk buyers")</div>
-        <div class="step"><span class="step-dot dot-online"></span>Assigns product/category affinity score</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers personalization:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Show relevant products first</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Push category-specific offers</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Feed retargeting audiences with exact interest</div>
-      </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Understand what users want → enable precise retargeting and smarter merchandising.</div>
-    </div>
-  </div>
-
-  <!-- Card 4 -->
-  <div class="card online">
-    <div class="card-tag tag-online">Returning</div>
-    <div class="card-title">Detect Repeat Visitors Without Login</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">A user returns multiple times but never logs in or identifies themselves.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"This is not new traffic — this is a warming buyer."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Recognizes returning behavior across sessions/devices</div>
-        <div class="step"><span class="step-dot dot-online"></span>Escalates response based on visit count:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Visit 2–3: Show trust signals (reviews, guarantees)</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Visit 3–5: Introduce offer/incentive</div>
-        <div class="step-sub"><span class="step-arrow">→</span>High repeat: Trigger stronger conversion push</div>
-      </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Prioritize warm visitors → focus resources on users most likely to convert.</div>
-    </div>
-  </div>
-
-  <!-- Card 5 -->
-  <div class="card online">
-    <div class="card-tag tag-online">Journey</div>
-    <div class="card-title">Build Intent Profiles from Passive Behavior</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">Visitors browse, compare, and explore — but never take explicit actions.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"This user is moving through the buying journey — track progression."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Combines all signals into a unified intent profile</div>
-        <div class="step"><span class="step-dot dot-online"></span>Maps stage: Awareness → Consideration → Decision</div>
-        <div class="step"><span class="step-dot dot-online"></span>Activates stage-based actions:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Awareness: educate (content, comparisons)</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Consideration: differentiate (USPs, reviews)</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Decision: convert (offers, urgency)</div>
-      </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">See the full buyer journey → make smarter targeting and timing decisions.</div>
-    </div>
-  </div>
-
-  <!-- Card 6 -->
-  <div class="card online">
-    <div class="card-tag tag-online">Nudge</div>
-    <div class="card-title">Trigger Soft Nudges Based on Behavior</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">A visitor shows interest but doesn't act — no cart, no signup, just hesitation.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"User is interested but unsure — don't push hard, guide softly."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Detects hesitation signals (idle time, repeat views, scroll patterns)</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers subtle nudges:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>"People also bought…"</div>
-        <div class="step-sub"><span class="step-arrow">→</span>"Only X left in stock"</div>
-        <div class="step-sub"><span class="step-arrow">→</span>"Popular choice among buyers like you"</div>
-        <div class="step"><span class="step-dot dot-online"></span>Personalizes nudge based on behavior + profile</div>
-      </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Gently push users toward action → increase conversions without being aggressive.</div>
-    </div>
-  </div>
-
-  <!-- Card 7 -->
-  <div class="card online">
-    <div class="card-tag tag-online">Recovery</div>
-    <div class="card-title">High-Intent Product Viewer — Missed Opportunity Recovery</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">A user visits the same product page multiple times but doesn't purchase.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"This is strong intent — convert before it's lost."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Detects repeated product interest and assigns high intent score</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers personalized outreach:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Email / WhatsApp: "Still thinking about this?"</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Smart discount / urgency trigger</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Pre-applied offer link</div>
-      </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Converts silent intent into revenue → captures customers traditional analytics miss entirely.</div>
-    </div>
-  </div>
-
-  <!-- Card 8 -->
-  <div class="card online">
-    <div class="card-tag tag-online">Personalization</div>
-    <div class="card-title">Known User Personalization — Adaptive Experience</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">A returning user visits the website.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"Every returning user should see a tailored experience."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Uses past purchases, browsing behavior, and preferences</div>
-        <div class="step"><span class="step-dot dot-online"></span>Dynamically adapts experience:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Personalized homepage</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Relevant products shown first</div>
-        <div class="step-sub"><span class="step-arrow">→</span>"Recommended for you" + custom deals</div>
-      </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Every user sees a different experience → higher engagement and repeat purchases.</div>
-    </div>
-  </div>
-
-  <!-- Card 9 -->
-  <div class="card online">
-    <div class="card-tag tag-online">Lifecycle</div>
-    <div class="card-title">Dormant Customer Reactivation</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">Customer hasn't visited or purchased in 60+ days.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"Reactivation is easier than acquisition."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Detects inactivity + past customer value</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers personalized reactivation:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>"We miss you" campaigns</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Tailored offers based on past interest</div>
-      </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Revives dormant customers → increases lifetime value (LTV) without paid acquisition spend.</div>
-    </div>
-  </div>
-
 </div>
-
-<!-- ACTION-BASED SUBSECTION -->
-<div class="subsection-title">Action-Based Opportunities</div>
-
-<div class="cards-grid">
-
-  <!-- Card 10 -->
-  <div class="card online">
-    <div class="card-tag tag-action">Cart Recovery</div>
-    <div class="card-title">Recover Abandoned Carts in Real Time</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">User adds product to cart → drops out at checkout.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"Not all drop-offs are the same — recovery must be contextual."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Detects checkout drop-off behavior</div>
-        <div class="step"><span class="step-dot dot-online"></span>Identifies why user dropped and triggers contextual recovery:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Price-sensitive → discount offer</div>
-        <div class="step-sub"><span class="step-arrow">→</span>First-time buyer → trust signals</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Returning user → urgency nudge</div>
+<div class="page-sections">
+  <div class="container">
+    <section id="price-comparison" class="section-card">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Section 01</div>
+          <h2 class="section-title">Price Comparison</h2>
+        </div>
       </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Context-based recovery → significantly higher conversion vs generic cart reminders.</div>
-    </div>
-  </div>
-
-  <!-- Card 11 -->
-  <div class="card online">
-    <div class="card-tag tag-action">Checkout Intent</div>
-    <div class="card-title">Trigger Offers on Add-to-Cart or Checkout Intent</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">User adds a product to the cart or initiates checkout.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"User is ready — a small push can close the deal."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Detects high-intent actions instantly</div>
-        <div class="step"><span class="step-dot dot-online"></span>Evaluates user type (new / repeat / high-value)</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers contextual incentives:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Bundle offers ("Add more & save")</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Limited-time discounts</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Free shipping nudges</div>
+      <div class="section-body">
+        <p class="intro">This section stays first, with the most important decision signal up front: which retailer is offering the best current value once code usage, shipping, and listing quality are considered.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Retailer</th><th>Price</th><th>Rating</th><th>Shipping</th><th style="text-align:right;">Action</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="retailer">Warehouse Liquidation Sale</div><div class="retailer-meta">via GunDeals | code WLS10</div></td>
+                <td><div class="price">$674.99</div><span class="badge best">Lowest</span><span class="badge code">WLS10</span></td>
+                <td><span class="rating-pill">4.4/5 | Value seller</span></td>
+                <td>Free</td>
+                <td style="text-align:right;"><a class="btn primary" href="https://gun.deals/search/apachesolr_search/212100" target="_blank" rel="noopener">Check Deal</a></td>
+              </tr>
+              <tr>
+                <td><div class="retailer">EuroOptic</div><div class="retailer-meta">Authorized dealer | no-tax reputation</div></td>
+                <td><div class="price">Around $747.49</div></td>
+                <td><span class="rating-pill">4.8/5 | Trusted</span></td>
+                <td>Free over $250</td>
+                <td style="text-align:right;"><a class="btn primary" href="https://www.eurooptic.com/athlon-ares-etr-45-30x56mm-dd-sf-34mm-aprs1-ffp-ir-mil-riflescope-212100" target="_blank" rel="noopener">Check Deal</a></td>
+              </tr>
+              <tr>
+                <td><div class="retailer">Sportsman's Guide</div><div class="retailer-meta">Verified in-stock style listings</div></td>
+                <td><div class="price">Around $799 to $849</div></td>
+                <td><span class="rating-pill">4.3/5 | Established</span></td>
+                <td>Free on $99+</td>
+                <td style="text-align:right;"><a class="btn primary" href="https://gun.deals/search/apachesolr_search/212100" target="_blank" rel="noopener">Check Deal</a></td>
+              </tr>
+              <tr>
+                <td><div class="retailer">Brownells / Optics Planet</div><div class="retailer-meta">Coupon may apply</div></td>
+                <td><div class="price">Around $949.99</div><span class="badge code">GUNDEALS</span></td>
+                <td><span class="rating-pill">4.5/5 | Popular</span></td>
+                <td>Free on $49+</td>
+                <td style="text-align:right;"><a class="btn primary" href="https://gun.deals/search/apachesolr_search/212100" target="_blank" rel="noopener">Check Deal</a></td>
+              </tr>
+              <tr>
+                <td><div class="retailer">EuroOptic Used Like-New</div><div class="retailer-meta">Alternate inspected listing</div></td>
+                <td><div class="price">From $589</div></td>
+                <td><span class="rating-pill">4.7/5 | Reviewed</span></td>
+                <td>Varies</td>
+                <td style="text-align:right;"><a class="btn primary" href="https://www.eurooptic.com/athlon-ares-etr-45-30x56mm-dd-sf-34mm-aprs1-ffp-ir-mil-riflescope-212100" target="_blank" rel="noopener">Check Deal</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="history-grid">
+          <div class="history-card">
+            <div class="block-title">Price History</div>
+            <p class="intro" style="margin-bottom:0;">Placed directly after the retailer table so visitors can judge whether today&rsquo;s price looks strong versus recent levels.</p>
+            <div class="history-bars">
+              <div class="history-row"><span>Jan</span><div class="history-track"><div class="history-fill" style="width:92%;"></div></div><span>$949</span></div>
+              <div class="history-row"><span>Feb</span><div class="history-track"><div class="history-fill" style="width:88%;"></div></div><span>$899</span></div>
+              <div class="history-row"><span>Mar</span><div class="history-track"><div class="history-fill" style="width:80%;"></div></div><span>$819</span></div>
+              <div class="history-row"><span>Apr</span><div class="history-track"><div class="history-fill" style="width:66%;"></div></div><span>$675</span></div>
+            </div>
+          </div>
+          <div class="history-summary">
+            <div class="block-title">Pricing Snapshot</div>
+            <div class="summary-chip"><strong>Current low:</strong> $674.99 with code</div>
+            <div class="summary-chip"><strong>Three-month trend:</strong> clearly down</div>
+            <div class="summary-chip"><strong>Best buyer signal:</strong> current listings sit well below the earlier $899 to $949 range</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Increase conversion rate and AOV → maximize value at peak intent moment.</div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Card 12 -->
-  <div class="card online">
-    <div class="card-tag tag-action">Lead Capture</div>
-    <div class="card-title">Capture Leads from Form Interactions or Clicks</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">User starts filling a form or clicks a CTA but may not submit.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"User is engaging — don't lose this opportunity."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Tracks partial form fills and interaction signals</div>
-        <div class="step"><span class="step-dot dot-online"></span>Captures available lead data even if incomplete</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers continuation actions:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Save partial lead information</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Retarget via email/ads</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Optimize form dynamically to reduce friction</div>
+    <section class="section-card compact-section">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Section 02</div>
+          <h2 class="section-title">Quick Verdict and Specifications</h2>
+        </div>
       </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Capture more leads without requiring a full submission → increase lead volume from existing traffic.</div>
-    </div>
-  </div>
-
-  <!-- Card 13 -->
-  <div class="card online">
-    <div class="card-tag tag-action">Retargeting</div>
-    <div class="card-title">Retarget Users Based on Specific Actions</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">User views products, clicks CTAs, or adds to cart but doesn't convert.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"We know exactly what they want — retarget precisely."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Segments users based on exact actions taken</div>
-        <div class="step"><span class="step-dot dot-online"></span>Builds real-time high-intent audiences</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers targeted campaigns:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Product-specific ads</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Cart reminders</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Personalized follow-ups</div>
+      <div class="section-body modern-grid">
+        <div class="stack-panel">
+          <div class="text-box">
+            <p>The Athlon Ares ETR UHD 4.5-30x56 APRS1 remains a strong buy for shoppers who want premium-style long-range features without stepping into much higher pricing tiers.</p>
+            <p>The real appeal is how much usable performance gets packed into the package: first focal plane MIL reticle, locking controls, solid travel, and a spec list that still compares well against more expensive rivals.</p>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card"><div class="stat-label">Best For</div><strong>PRS, long-range steel, precision-focused setups</strong></div>
+            <div class="mini-card"><div class="stat-label">Watch-Out</div><strong>Heavier than compact hunting-oriented alternatives</strong></div>
+            <div class="mini-card"><div class="stat-label">Value Edge</div><strong>Excellent feature-to-price spread at current listings</strong></div>
+            <div class="mini-card"><div class="stat-label">Buyer Type</div><strong>Shoppers comparing serious optics under premium-tier pricing</strong></div>
+          </div>
+        </div>
+        <div class="side-panel">
+          <h3>Key Specifications</h3>
+          <div class="spec-grid">
+            <div class="key">Magnification</div><div class="val">4.5-30x</div>
+            <div class="key">Objective Lens</div><div class="val">56 mm</div>
+            <div class="key">Reticle</div><div class="val">APRS1 | FFP | Illuminated | MIL</div>
+            <div class="key">Tube Diameter</div><div class="val">34 mm</div>
+            <div class="key">Click Value</div><div class="val">0.1 MIL per click</div>
+            <div class="key">Elevation Travel</div><div class="val">110 MOA total</div>
+            <div class="key">Windage</div><div class="val">32 MIL total | locking</div>
+            <div class="key">Parallax</div><div class="val">25 yards to infinity</div>
+            <div class="key">Eye Relief</div><div class="val">3.9 in</div>
+            <div class="key">Weight</div><div class="val">36.5 oz</div>
+            <div class="key">Length</div><div class="val">15.3 in</div>
+            <div class="key">Warranty</div><div class="val">Athlon lifetime warranty</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Highly relevant retargeting → better ROI → convert with precision, not guesswork.</div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Card 14 -->
-  <div class="card online">
-    <div class="card-tag tag-action">Messaging</div>
-    <div class="card-title">Personalize Messaging Based on Engagement Signals</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">User actively engages — scrolling, clicking, interacting with content.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"Engagement tells us what message will resonate."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Measures engagement depth and interaction patterns</div>
-        <div class="step"><span class="step-dot dot-online"></span>Adapts messaging dynamically:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Highlight relevant benefits</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Show targeted testimonials or social proof</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Adjust tone based on intent level</div>
+    <section class="section-card compact-section">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Section 03</div>
+          <h2 class="section-title">Ratings and Reviews</h2>
+        </div>
       </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Deliver more relevant experiences → increase trust and conversion efficiency.</div>
-    </div>
-  </div>
-
-  <!-- Card 15 -->
-  <div class="card online">
-    <div class="card-tag tag-action">Prioritization</div>
-    <div class="card-title">Prioritize High-Intent Users from Clicks & Forms</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">User performs strong actions like clicking key CTAs, submitting forms, or deep engagement.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"This is a high-probability buyer — prioritize immediately."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Assigns high intent score based on actions</div>
-        <div class="step"><span class="step-dot dot-online"></span>Flags users as conversion-ready</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers prioritization:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Push to CRM/sales instantly</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Prioritize in retargeting campaigns</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Show strongest conversion triggers on-site</div>
+      <div class="section-body review-overview">
+        <div class="score-card">
+          <div class="score-big">4.6</div>
+          <div class="score-sub">Average shopper score</div>
+        </div>
+        <div class="side-panel">
+          <h3>Review Snapshot</h3>
+          <div class="review-bars">
+            <div class="review-row"><span>5 star</span><div class="review-track"><div class="review-fill" style="width:78%;"></div></div><span>78%</span></div>
+            <div class="review-row"><span>4 star</span><div class="review-track"><div class="review-fill" style="width:15%;"></div></div><span>15%</span></div>
+            <div class="review-row"><span>3 star</span><div class="review-track"><div class="review-fill" style="width:5%;"></div></div><span>5%</span></div>
+            <div class="review-row"><span>2 star</span><div class="review-track"><div class="review-fill" style="width:1%;"></div></div><span>1%</span></div>
+            <div class="review-row"><span>1 star</span><div class="review-track"><div class="review-fill" style="width:1%;"></div></div><span>1%</span></div>
+          </div>
+          <p class="intro" style="margin-top:14px;margin-bottom:0;">Buyers and forum-style reviewers consistently point to strong tracking, useful long-range features, and a very competitive value profile. Most criticism centers on weight and size rather than core performance.</p>
+        </div>
       </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Focus on users most likely to convert → faster conversions and higher sales efficiency.</div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Card 16 -->
-  <div class="card online">
-    <div class="card-tag tag-action">Exit Intent</div>
-    <div class="card-title">Real-Time Exit Intent Recovery</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">User is about to leave the website.</p>
-    </div>
-    <div class="think-box">
-      <span class="think-icon">💡</span>
-      <span class="think-text">"This session can still be saved — act instantly."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-online"></span>Detects exit behavior in real time</div>
-        <div class="step"><span class="step-dot dot-online"></span>Triggers immediate intervention:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Discount / free shipping popup</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Limited-time deal</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Smart recommendation</div>
+    <section class="section-card compact-section">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Section 04</div>
+          <h2 class="section-title">Official Videos and PDFs</h2>
+        </div>
       </div>
-    </div>
-    <div class="outcome-box">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Saves conversions before they are lost → immediate revenue impact on exit sessions.</div>
-    </div>
-  </div>
+      <div class="section-body">
+        <div class="docs-grid" style="margin-bottom:14px;">
+          <a class="doc-card" href="https://athlonoptics.com/wp-content/uploads/2020/11/212100-212102_Ares-ETR-UHD_45-30x56_APRS1-APLR5_20-09-11.pdf" target="_blank" rel="noopener"><div class="doc-meta">Athlon PDF</div><strong>Product Spec Sheet</strong><p>Official Athlon spec sheet for the 212100 / 212102 family.</p><span class="arrow-link">Open PDF</span></a>
+          <a class="doc-card" href="https://athlonoptics.com/wp-content/uploads/2022/11/2022_Ares-ETR-UHD-4.5-30x56_15-60x56_2nd-Copy.pdf" target="_blank" rel="noopener"><div class="doc-meta">Athlon PDF</div><strong>Product User Manual</strong><p>Official user manual covering the Ares ETR UHD models.</p><span class="arrow-link">Open PDF</span></a>
+          <a class="doc-card" href="https://athlonoptics.com/wp-content/uploads/2020/11/4.5-30x56-APRS1-FFP-IR-MIL.pdf" target="_blank" rel="noopener"><div class="doc-meta">Athlon PDF</div><strong>Reticle Manual</strong><p>Official APRS1 FFP IR MIL reticle reference document.</p><span class="arrow-link">Open PDF</span></a>
+        </div>
+        <div class="video-grid">
+          <a class="video-card" href="https://www.youtube.com/watch?v=D1ejygcl40Q" target="_blank" rel="noopener">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/D1ejygcl40Q/hqdefault.jpg" alt="Athlon official feature video thumbnail"></div>
+            <strong>Ares ETR 4.5-30x56 APRS1 MIL FFP IR UHD features and details</strong>
+            <p>Official Athlon feature video linked from the official product page.</p>
+            <span class="arrow-link">Watch on YouTube</span>
+          </a>
+          <a class="video-card" href="https://www.youtube.com/watch?v=GQeWrgPq_EU" target="_blank" rel="noopener">
+            <div class="video-thumb"><img src="https://img.youtube.com/vi/GQeWrgPq_EU/hqdefault.jpg" alt="Who is Athlon official video thumbnail"></div>
+            <strong>Welcome to Athlon</strong>
+            <p>Official Athlon brand video linked from the product page.</p>
+            <span class="arrow-link">Watch on YouTube</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
+    <section class="section-card">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Section 05</div>
+          <h2 class="section-title">Related Products and Categories</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="comparison-wrap">
+          <table>
+            <thead>
+              <tr><th>Compare with Similar Items</th><th>Magnification</th><th>Tube</th><th>Style</th><th>Typical Price</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Athlon Ares ETR UHD 4.5-30x56</td><td>4.5-30x56</td><td>34mm</td><td>Feature-heavy value pick</td><td>$675 to $949</td></tr>
+              <tr><td>Vortex Viper PST Gen2 5-25x50</td><td>5-25x50</td><td>30mm</td><td>Mainstream premium mid-tier</td><td>$850 to $1,000</td></tr>
+              <tr><td>Athlon Cronus BTR Gen2 4.5-29x56</td><td>4.5-29x56</td><td>34mm</td><td>Step-up Athlon option</td><td>$1,300+</td></tr>
+              <tr><td>Nightforce ATACR 5-25x56</td><td>5-25x56</td><td>34mm</td><td>Top-tier benchmark</td><td>$2,800+</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="links-grid">
+          <a class="link-card" href="#"><div class="link-meta">Successor Model</div><strong>Athlon Ares ETR Gen2 UHD 4.5-30x56 APRS12 FFP IR MIL</strong><p>Closest next-step option for readers comparing updated Athlon generations.</p><span class="arrow-link">Open Comparison</span></a>
+          <a class="link-card" href="#"><div class="link-meta">Direct Competitor</div><strong>Vortex Viper PST Gen2 5-25x50 FFP EBR-7C MRAD</strong><p>A common side-by-side competitor shoppers evaluate in the same band.</p><span class="arrow-link">Open Comparison</span></a>
+          <a class="link-card" href="#"><div class="link-meta">Category</div><strong>Best Long-Range Scopes Under $1,000</strong><p>Broader buyer guide for readers still narrowing the field.</p><span class="arrow-link">Open Category</span></a>
+          <a class="link-card" href="#"><div class="link-meta">Athlon Alternative</div><strong>Athlon Cronus BTR Gen2 UHD 4.5-29x56 APRS1 FFP IR MIL</strong><p>Higher-level Athlon alternative for performance-focused comparison shoppers.</p><span class="arrow-link">Open Comparison</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Section 06</div>
+          <h2 class="section-title">Related Searches</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="search-grid">
+          <a class="search-card" href="#"><strong>Athlon Ares ETR review</strong><p>General buyer research query.</p></a>
+          <a class="search-card" href="#"><strong>best long range rifle scopes under $1000</strong><p>Value-led precision scope category query.</p></a>
+          <a class="search-card" href="#"><strong>Athlon Ares ETR vs Vortex Viper PST Gen2</strong><p>Direct comparison search phrase.</p></a>
+          <a class="search-card" href="#"><strong>FFP MIL scope for PRS competition</strong><p>Use-case driven search phrase.</p></a>
+          <a class="search-card" href="#"><strong>Athlon 212100 lowest price</strong><p>Retailer and coupon research phrase.</p></a>
+          <a class="search-card" href="#"><strong>Athlon Ares ETR Gen2 vs original</strong><p>Generation comparison search phrase.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Section 07</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+      </div>
+      <div class="section-body">
+          <div class="faq-grid">
+            <div class="faq-card"><strong>Is this page using official media?</strong><p>Yes. The gallery images, PDF links, and YouTube video links on this page come from Athlon's official product page and official linked assets.</p></div>
+            <div class="faq-card"><strong>Why is the gallery on the left now?</strong><p>The visual product browsing experience now leads the hero from the left side, which helps the page feel more modern and makes the product itself easier to scan at a glance.</p></div>
+            <div class="faq-card"><strong>Why does Price Comparison come first?</strong><p>This product page is built for decision-making. Keeping retailer comparison first makes the page more useful for visitors who arrive ready to compare offers.</p></div>
+            <div class="faq-card"><strong>What official resources are included?</strong><p>The page links to Athlon's product spec sheet, user manual, reticle manual, and official YouTube videos for this optic family.</p></div>
+          </div>
+        </div>
+      </section>
+
+    <section class="section-card">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Recently Viewed</div>
+          <h2 class="section-title">Keep Comparing</h2>
+        </div>
+      </div>
+      <div class="section-body">
+        <div class="recent-grid">
+          <a class="link-card" href="#"><div class="link-meta">Recently Viewed</div><strong>Vortex Viper PST Gen2 5-25x50</strong><p>Common value comparison against the Ares ETR.</p><span class="arrow-link">View Again</span></a>
+          <a class="link-card" href="#"><div class="link-meta">Recently Viewed</div><strong>Athlon Cronus BTR Gen2 4.5-29x56</strong><p>Higher-tier Athlon optic for buyers stepping up.</p><span class="arrow-link">View Again</span></a>
+          <a class="link-card" href="#"><div class="link-meta">Recently Viewed</div><strong>Bushnell Match Pro ED 5-30x56</strong><p>Another precision-first optic often cross-shopped here.</p><span class="arrow-link">View Again</span></a>
+          <a class="link-card" href="#"><div class="link-meta">Recently Viewed</div><strong>Nightforce ATACR 5-25x56</strong><p>Premium benchmark to frame the value gap.</p><span class="arrow-link">View Again</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
-
-<!-- OFFLINE SECTION -->
-<div class="section-divider" style="margin-top: 2.5rem;"><hr></div>
-
-<div id="offline" class="section-header" style="padding-top: 1.5rem;">
-  <div class="section-label label-offline">&#9632; Offline</div>
-  <h2>Event Lead Capture & Activation</h2>
-  <p>Turn trade show leads and offline interactions into a structured, behavior-driven conversion funnel.</p>
+<div class="footer">
+  <div class="container">
+    <div>ScopeCompare helps shoppers compare pricing, specs, and official product research in one calmer layout.</div>
+    <div class="footer-nav">
+      <a href="#">Privacy</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Affiliate Disclosure</a>
+    </div>
+  </div>
 </div>
-
-<div class="cards-grid">
-
-  <!-- Offline Card 1 -->
-  <div class="card offline">
-    <div class="card-tag tag-offline">Event Activation</div>
-    <div class="card-title">Trade Show Lead Capture & Activation</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">Company participates in a trade show and collects leads via booth visits, QR scans, or sign-ups.</p>
-    </div>
-    <div class="think-box offline-think">
-      <span class="think-icon">💡</span>
-      <span class="think-text offline-text">"Event leads should be structured, tracked, and activated — not just stored."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-offline"></span>Step 1 — Capture & Structure: Create dedicated list per event, tag by source</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Step 2 — Track & Enrich: Monitor website visits post-event, identify interest level</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Step 3 — Activate: Trigger behavior-based emails and dynamic offers per lead</div>
-      </div>
-    </div>
-    <div class="outcome-box offline-outcome">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Scattered leads + generic campaigns → structured, behavior-driven funnel with significantly improved ROI.</div>
-    </div>
-  </div>
-
-  <!-- Offline Card 2 -->
-  <div class="card offline">
-    <div class="card-tag tag-offline">Identity</div>
-    <div class="card-title">Assign Unique User IDs to Event Visitors</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">Users interact at an event but may engage later online via website or campaigns.</p>
-    </div>
-    <div class="think-box offline-think">
-      <span class="think-icon">💡</span>
-      <span class="think-text offline-text">"This journey must stay connected across offline → online."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-offline"></span>Assigns a unique identifier to each event lead</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Links this ID across email, website visits, and campaigns</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Tracks the full lifecycle across all touchpoints</div>
-      </div>
-    </div>
-    <div class="outcome-box offline-outcome">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">One unified user journey across channels → no broken attribution or duplicated users.</div>
-    </div>
-  </div>
-
-  <!-- Offline Card 3 -->
-  <div class="card offline">
-    <div class="card-tag tag-offline">Engagement</div>
-    <div class="card-title">Track Engagement from Event-Originated Campaigns</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">You send emails or ads to attendees after the event.</p>
-    </div>
-    <div class="think-box offline-think">
-      <span class="think-icon">💡</span>
-      <span class="think-text offline-text">"Post-event engagement shows real buying intent — track deeply."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-offline"></span>Tracks opens, clicks, and website behavior from event campaigns</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Connects engagement back to the original event source</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Measures movement toward conversion per lead</div>
-      </div>
-    </div>
-    <div class="outcome-box offline-outcome">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Clear visibility into who is actually interested → focus on engaged, not just collected leads.</div>
-    </div>
-  </div>
-
-  <!-- Offline Card 4 -->
-  <div class="card offline">
-    <div class="card-tag tag-offline">Follow-Up</div>
-    <div class="card-title">Send Personalized Follow-Ups Based on Event Interaction</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">Different visitors showed interest in different products or conversations at the event.</p>
-    </div>
-    <div class="think-box offline-think">
-      <span class="think-icon">💡</span>
-      <span class="think-text offline-text">"Follow-up should reflect what each user actually cared about."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-offline"></span>Captures product interest and interaction context at the event</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Segments users based on interest + behavior</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Triggers personalized follow-ups:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Product-specific emails</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Custom offers and relevant demos</div>
-      </div>
-    </div>
-    <div class="outcome-box offline-outcome">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">More relevant follow-ups → higher response rates → turn conversations into conversions.</div>
-    </div>
-  </div>
-
-  <!-- Offline Card 5 -->
-  <div class="card offline">
-    <div class="card-tag tag-offline">Segmentation</div>
-    <div class="card-title">Segment Leads by Event & Product Interest</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">You have a large pool of event leads with varying interests and engagement levels.</p>
-    </div>
-    <div class="think-box offline-think">
-      <span class="think-icon">💡</span>
-      <span class="think-text offline-text">"Not all leads are equal — segment for precision."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-offline"></span>Segments users by event source, product interest, and engagement level</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Creates highly targeted audience buckets for each segment</div>
-      </div>
-    </div>
-    <div class="outcome-box offline-outcome">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Better targeting and messaging accuracy → higher conversion efficiency per segment.</div>
-    </div>
-  </div>
-
-  <!-- Offline Card 6 -->
-  <div class="card offline">
-    <div class="card-tag tag-offline">Nurturing</div>
-    <div class="card-title">Enable Targeted Post-Event Nurturing Campaigns</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">Most event leads are not ready to buy immediately.</p>
-    </div>
-    <div class="think-box offline-think">
-      <span class="think-icon">💡</span>
-      <span class="think-text offline-text">"Nurture based on intent, not generic drip campaigns."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-offline"></span>Tracks post-event behavior across sessions</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Identifies journey stage per lead and triggers stage-based nurturing:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Early stage: education content</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Consideration: case studies</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Decision stage: offers and urgency</div>
-      </div>
-    </div>
-    <div class="outcome-box offline-outcome">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Smarter nurturing → better long-term conversions → no more generic follow-ups.</div>
-    </div>
-  </div>
-
-  <!-- Offline Card 7 -->
-  <div class="card offline">
-    <div class="card-tag tag-offline">Attribution</div>
-    <div class="card-title">Measure ROI per Event — End-to-End Attribution</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">You invest in events but struggle to measure actual return on investment.</p>
-    </div>
-    <div class="think-box offline-think">
-      <span class="think-icon">💡</span>
-      <span class="think-text offline-text">"Every event must tie back to revenue."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-offline"></span>Tracks each user from event → website → conversion</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Attributes revenue back to specific event</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Provides performance metrics per event (leads, engagement, conversions)</div>
-      </div>
-    </div>
-    <div class="outcome-box offline-outcome">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Clear ROI visibility per event → invest in what actually drives revenue.</div>
-    </div>
-  </div>
-
-  <!-- Offline Card 8 -->
-  <div class="card offline">
-    <div class="card-tag tag-offline">CRM Sync</div>
-    <div class="card-title">Sync Event Leads with CRM — Unified System</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">Event leads need to be managed and followed up by sales teams.</p>
-    </div>
-    <div class="think-box offline-think">
-      <span class="think-icon">💡</span>
-      <span class="think-text offline-text">"Sales should not work with raw data — give them context."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-offline"></span>Syncs leads to CRM with unique identifiers</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Enriches profiles with event source, behavior data, and intent score</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Keeps data updated in real time</div>
-      </div>
-    </div>
-    <div class="outcome-box offline-outcome">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Sales gets enriched, actionable leads → better follow-ups and higher close rates.</div>
-    </div>
-  </div>
-
-  <!-- Offline Card 9 -->
-  <div class="card offline">
-    <div class="card-tag tag-offline">Sales Priority</div>
-    <div class="card-title">Prioritize High-Intent Event Leads for Sales</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">Not all event leads are equally valuable or conversion-ready.</p>
-    </div>
-    <div class="think-box offline-think">
-      <span class="think-icon">💡</span>
-      <span class="think-text offline-text">"Sales should focus where conversion probability is highest."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-offline"></span>Scores leads based on post-event behavior (clicks, visits, actions)</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Identifies "hot" leads vs cold leads in real time</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Triggers prioritization:</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Alerts sales team instantly</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Pushes high-intent leads to top of pipeline</div>
-        <div class="step-sub"><span class="step-arrow">→</span>Suggests next best action</div>
-      </div>
-    </div>
-    <div class="outcome-box offline-outcome">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Faster conversions with focused sales effort → maximize ROI from event leads.</div>
-    </div>
-  </div>
-
-  <!-- Offline Card 10 -->
-  <div class="card offline">
-    <div class="card-tag tag-offline">Full Funnel</div>
-    <div class="card-title">Lead → Sales → Offline Conversion Tracking</div>
-    <div class="card-section">
-      <span class="card-section-label">Scenario</span>
-      <p class="card-section-text">User visits → submits lead → talks to sales → buys offline. Marketing loses visibility after the website.</p>
-    </div>
-    <div class="think-box offline-think">
-      <span class="think-icon">💡</span>
-      <span class="think-text offline-text">"The journey doesn't end online — track revenue completely."</span>
-    </div>
-    <div class="card-section">
-      <span class="card-section-label">DEXTracker Response</span>
-      <div class="response-steps">
-        <div class="step"><span class="step-dot dot-offline"></span>Tracks full journey: Website → Lead → Sales → Offline purchase</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Connects revenue back to originating source</div>
-        <div class="step"><span class="step-dot dot-offline"></span>Identifies highest-performing campaigns end to end</div>
-      </div>
-    </div>
-    <div class="outcome-box offline-outcome">
-      <div class="outcome-label">Outcome</div>
-      <div class="outcome-text">Complete funnel visibility → no more lost attribution → know exactly what drives offline revenue.</div>
-    </div>
-  </div>
-
-</div>
-
-<footer>
-  &copy; 2026 DEXTracker &nbsp;·&nbsp; Behavioral Intelligence for Revenue Teams
-</footer>
-
 </body>
 </html>
