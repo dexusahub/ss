@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- 🔐 PASSWORD PROTECTION -->
+<script>
+  const correctPassword = "Dexdex2!";
+
+  const entered = prompt("Enter password to access:");
+
+  if (entered !== correctPassword) {
+    document.write("<h1 style='font-family:sans-serif;text-align:center;margin-top:20%;'>Access Denied</h1>");
+    document.stop();
+  }
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DEXTracker — Use Cases</title>
@@ -1091,7 +1102,7 @@
 </div>
 
 <footer>
-  &copy; 2025 DEXTracker &nbsp;·&nbsp; Behavioral Intelligence for Revenue Teams
+  &copy; 2026 DEXTracker &nbsp;·&nbsp; Behavioral Intelligence for Revenue Teams
 </footer>
 
 </body>
