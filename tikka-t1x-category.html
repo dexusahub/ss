@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tikka T1x Rimfire Collection — ApexArmory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── RESET & BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f4f3f0;
+    color: #1a1a2e;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── CSS VARIABLES ── */
+  :root {
+    --navy:      #0d1b2a;
+    --navy-mid:  #162032;
+    --navy-soft: #1e2f45;
+    --gold:      #b8963e;
+    --gold-light:#d4af6a;
+    --cream:     #f4f3f0;
+    --white:     #ffffff;
+    --grey-100:  #f0eeeb;
+    --grey-200:  #e4e2de;
+    --grey-400:  #9a9490;
+    --grey-600:  #6b6560;
+    --text-body: #2e2b28;
+    --shadow-sm: 0 2px 8px rgba(13,27,42,0.08);
+    --shadow-md: 0 6px 24px rgba(13,27,42,0.12);
+    --shadow-lg: 0 16px 48px rgba(13,27,42,0.16);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --transition: 0.28s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--navy);
+    border-bottom: 1px solid rgba(184,150,62,0.2);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 68px;
+    gap: 24px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .logo-mark {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700; color: var(--navy);
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .logo-text span { color: var(--gold); }
+
+  .header-search {
+    flex: 1;
+    max-width: 420px;
+    position: relative;
+  }
+  .header-search input {
+    width: 100%;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50px;
+    padding: 9px 20px 9px 44px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    outline: none;
+    transition: var(--transition);
+  }
+  .header-search input::placeholder { color: rgba(255,255,255,0.4); }
+  .header-search input:focus {
+    background: rgba(255,255,255,0.11);
+    border-color: rgba(184,150,62,0.5);
+  }
+  .search-icon {
+    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+    color: rgba(255,255,255,0.4); font-size: 15px; pointer-events: none;
+  }
+
+  nav { display: flex; align-items: center; gap: 4px; }
+  nav a {
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  nav a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+  nav a.active { color: var(--gold); }
+
+  .header-cta {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--navy) !important;
+    font-weight: 600 !important;
+    padding: 9px 20px !important;
+    border-radius: 50px !important;
+    white-space: nowrap;
+  }
+  .header-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+  /* ── CATEGORY HERO ── */
+  .category-hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 32px 72px;
+  }
+  .category-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(184,150,62,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(30,47,69,0.6) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .category-hero::after {
+    content: '';
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 500px; height: 500px;
+    border: 1px solid rgba(184,150,62,0.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .breadcrumb {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.78rem; color: rgba(255,255,255,0.45);
+    margin-bottom: 28px; font-family: 'DM Mono', monospace;
+    letter-spacing: 0.03em;
+  }
+  .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: var(--transition); }
+  .breadcrumb a:hover { color: var(--gold); }
+  .breadcrumb .sep { color: rgba(255,255,255,0.25); }
+  .breadcrumb .current { color: var(--gold); }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(184,150,62,0.12);
+    border: 1px solid rgba(184,150,62,0.3);
+    border-radius: 50px;
+    padding: 5px 14px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--gold); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.5; transform:scale(0.8); }
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    max-width: 680px;
+  }
+  .hero-title em { color: var(--gold); font-style: normal; }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 560px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .hero-stats {
+    display: flex; gap: 40px; flex-wrap: wrap;
+  }
+  .hero-stat { }
+  .hero-stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-family: 'DM Mono', monospace;
+  }
+  .hero-stat-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+    align-self: stretch;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 72px 32px;
+  }
+  .section-sm { padding: 48px 32px; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--grey-600);
+    max-width: 560px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  /* ── PURPOSE SELECTOR ── */
+  .purpose-wrap {
+    background: var(--white);
+    border-bottom: 1px solid var(--grey-200);
+  }
+  .purpose-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 22px 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .purpose-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grey-400);
+    margin-right: 6px;
+    white-space: nowrap;
+    font-family: 'DM Mono', monospace;
+  }
+  .purpose-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 9px 20px;
+    border-radius: 50px;
+    border: 1.5px solid var(--grey-200);
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--grey-600);
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+  .purpose-btn:hover {
+    border-color: var(--navy);
+    color: var(--navy);
+    background: var(--grey-100);
+  }
+  .purpose-btn.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+  }
+  .purpose-btn .pb-icon { font-size: 15px; }
+
+  /* ── FEATURED PRODUCT ── */
+  .featured-section { background: var(--cream); }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .featured-image-wrap {
+    position: relative;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-lg);
+  }
+  .featured-image-wrap img {
+    width: 90%; height: 90%; object-fit: contain;
+    filter: brightness(1.1);
+    position: relative; z-index: 1;
+  }
+  .featured-image-wrap::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(184,150,62,0.12) 0%, transparent 70%);
+  }
+  .featured-tag {
+    position: absolute; top: 20px; left: 20px; z-index: 2;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 50px;
+  }
+  .featured-score-badge {
+    position: absolute; bottom: 20px; right: 20px; z-index: 2;
+    background: rgba(13,27,42,0.9);
+    border: 1px solid rgba(184,150,62,0.3);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+  }
+  .fsb-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 700; color: var(--gold); line-height: 1;
+  }
+  .fsb-label {
+    font-size: 0.65rem; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    font-family: 'DM Mono', monospace; margin-top: 3px;
+  }
+
+  .featured-content {}
+  .featured-series {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .featured-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--navy); line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .featured-subtitle {
+    font-size: 0.9rem; color: var(--grey-600);
+    margin-bottom: 24px;
+  }
+
+  .pi-label {
+    display: inline-block;
+    background: rgba(184,150,62,0.1);
+    border: 1px solid rgba(184,150,62,0.3);
+    color: #8a6f20;
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 50px;
+    margin-bottom: 20px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .featured-price {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 28px;
+  }
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--navy);
+  }
+  .price-note { font-size: 0.8rem; color: var(--grey-400); }
+
+  .key-features-mini {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; margin-bottom: 32px;
+  }
+  .kfm-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 12px 14px;
+    background: var(--white);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--grey-200);
+  }
+  .kfm-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .kfm-text { font-size: 0.82rem; color: var(--text-body); font-weight: 500; line-height: 1.4; }
+
+  .score-bars { margin-bottom: 32px; }
+  .score-row {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 10px;
+  }
+  .score-name { font-size: 0.78rem; color: var(--grey-600); width: 80px; flex-shrink: 0; font-family: 'DM Mono', monospace; }
+  .score-bar-track {
+    flex: 1; height: 5px;
+    background: var(--grey-200); border-radius: 3px; overflow: hidden;
+  }
+  .score-bar-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 100%);
+    transition: width 1s ease;
+  }
+  .score-val { font-size: 0.78rem; font-weight: 600; color: var(--navy); width: 30px; text-align: right; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 600;
+    padding: 14px 28px; border-radius: 50px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-primary:hover {
+    background: var(--navy-soft);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent;
+    color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 500;
+    padding: 14px 24px; border-radius: 50px;
+    text-decoration: none;
+    border: 1.5px solid var(--grey-200);
+    cursor: pointer; transition: var(--transition);
+  }
+  .btn-secondary:hover {
+    border-color: var(--navy);
+    background: var(--grey-100);
+  }
+  .btn-group { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+  /* ── PRODUCT GRID ── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .product-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--grey-200);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(184,150,62,0.3);
+  }
+
+  .card-image {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+    aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .card-image img {
+    width: 80%; height: 80%; object-fit: contain;
+    filter: brightness(1.05);
+    transition: transform 0.4s ease;
+  }
+  .product-card:hover .card-image img { transform: scale(1.04); }
+  .card-image::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(184,150,62,0.1) 0%, transparent 70%);
+  }
+
+  .card-visual-tags {
+    position: absolute; top: 12px; left: 12px;
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .vtag {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+  }
+  .vtag-top { background: var(--gold); color: var(--navy); }
+  .vtag-rec { background: rgba(255,255,255,0.9); color: var(--navy); }
+  .vtag-new { background: #1a6b3a; color: #fff; }
+
+  .card-score-chip {
+    position: absolute; bottom: 10px; right: 10px;
+    background: rgba(13,27,42,0.88);
+    border: 1px solid rgba(184,150,62,0.3);
+    border-radius: 6px;
+    padding: 5px 9px;
+    display: flex; align-items: baseline; gap: 2px;
+    backdrop-filter: blur(4px);
+  }
+  .csc-val { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--gold); }
+  .csc-den { font-size: 0.65rem; color: rgba(255,255,255,0.4); }
+
+  .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+  .card-caliber {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 600;
+    color: var(--navy); line-height: 1.3; margin-bottom: 4px;
+  }
+  .card-config { font-size: 0.78rem; color: var(--grey-400); margin-bottom: 12px; }
+
+  .card-specs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .spec-chip {
+    background: var(--grey-100);
+    border: 1px solid var(--grey-200);
+    border-radius: 4px;
+    padding: 3px 9px;
+    font-size: 0.73rem;
+    color: var(--grey-600);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .card-pi {
+    font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 12px;
+    font-family: 'DM Mono', monospace;
+  }
+  .pi-best { color: #1a6b3a; }
+  .pi-good { color: #2b6cb0; }
+  .pi-premium { color: var(--gold); }
+
+  .card-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 14px; border-top: 1px solid var(--grey-200);
+    margin-top: auto;
+  }
+  .card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; color: var(--navy);
+  }
+  .card-price-sub { font-size: 0.72rem; color: var(--grey-400); font-family: 'DM Sans', sans-serif; }
+  .card-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--navy); color: var(--white);
+    font-size: 0.8rem; font-weight: 600;
+    padding: 9px 18px; border-radius: 50px;
+    text-decoration: none; transition: var(--transition);
+    border: none; cursor: pointer;
+  }
+  .card-cta:hover { background: var(--gold); color: var(--navy); }
+
+  /* ── KEY FEATURES ── */
+  .features-bg { background: var(--navy); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .feature-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    transition: var(--transition);
+  }
+  .feature-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(184,150,62,0.25);
+    transform: translateY(-3px);
+  }
+  .feature-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.1em; color: var(--gold);
+    margin-bottom: 14px; text-transform: uppercase;
+  }
+  .feature-icon {
+    font-size: 26px; margin-bottom: 14px; display: block;
+  }
+  .feature-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem; font-weight: 600;
+    color: var(--white); margin-bottom: 10px; line-height: 1.3;
+  }
+  .feature-desc {
+    font-size: 0.82rem; color: rgba(255,255,255,0.5);
+    line-height: 1.65; font-weight: 300;
+  }
+  .features-header { margin-bottom: 40px; }
+  .features-header .section-label { color: var(--gold); }
+  .features-header .section-title { color: var(--white); }
+  .features-header .section-subtitle { color: rgba(255,255,255,0.5); }
+
+  /* ── SPECS TABLE ── */
+  .specs-section { background: var(--cream); }
+  .specs-table-wrap { overflow-x: auto; }
+  .specs-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .specs-table thead tr {
+    background: var(--navy);
+  }
+  .specs-table thead th {
+    padding: 14px 20px;
+    text-align: left;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    white-space: nowrap;
+  }
+  .specs-table thead th:first-child { border-radius: 10px 0 0 0; }
+  .specs-table thead th:last-child  { border-radius: 0 10px 0 0; }
+  .specs-table tbody tr {
+    border-bottom: 1px solid var(--grey-200);
+    transition: background 0.15s;
+  }
+  .specs-table tbody tr:hover { background: rgba(184,150,62,0.04); }
+  .specs-table tbody tr:last-child { border-bottom: none; }
+  .specs-table tbody td {
+    padding: 14px 20px;
+    color: var(--text-body);
+    vertical-align: middle;
+    background: var(--white);
+  }
+  .specs-table tbody td:first-child {
+    font-weight: 600; color: var(--navy);
+  }
+  .specs-table .this-item td { background: rgba(184,150,62,0.04); }
+
+  .model-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; font-weight: 500;
+    background: var(--grey-100); border: 1px solid var(--grey-200);
+    border-radius: 4px; padding: 2px 7px;
+    color: var(--grey-600);
+  }
+
+  /* ── CONFIGURATIONS ── */
+  .configs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .config-card {
+    background: var(--white);
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    transition: var(--transition);
+  }
+  .config-card:hover {
+    border-color: var(--gold);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  .config-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+  .config-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 600;
+    color: var(--navy); margin-bottom: 8px;
+  }
+  .config-desc { font-size: 0.83rem; color: var(--grey-600); line-height: 1.6; margin-bottom: 14px; }
+  .config-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .config-chip {
+    background: var(--grey-100); border: 1px solid var(--grey-200);
+    border-radius: 50px; padding: 4px 11px;
+    font-size: 0.72rem; font-weight: 500;
+    color: var(--navy); font-family: 'DM Mono', monospace;
+  }
+
+  /* ── ACCESSORIES ── */
+  .accessories-bg { background: var(--grey-100); }
+  .accessories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .acc-card {
+    background: var(--white);
+    border: 1px solid var(--grey-200);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    transition: var(--transition);
+    text-align: center;
+  }
+  .acc-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(184,150,62,0.3);
+    transform: translateY(-3px);
+  }
+  .acc-icon { font-size: 36px; margin-bottom: 14px; display: block; }
+  .acc-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .acc-desc { font-size: 0.8rem; color: var(--grey-600); line-height: 1.5; margin-bottom: 14px; }
+  .acc-price { font-size: 0.9rem; font-weight: 600; color: var(--navy); font-family: 'Playfair Display', serif; margin-bottom: 12px; }
+  .acc-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 8px;
+    border: 1.5px solid var(--navy);
+    border-radius: 50px;
+    font-size: 0.78rem; font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .acc-btn:hover { background: var(--navy); color: var(--white); }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--grey-200); margin: 0; }
+
+  /* ── FOOTER ── */
+  .site-footer { background: var(--navy); color: rgba(255,255,255,0.6); }
+  .footer-top {
+    max-width: 1280px; margin: 0 auto;
+    padding: 64px 32px 48px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+  .footer-brand-desc {
+    font-size: 0.85rem; line-height: 1.7; margin-top: 16px;
+    color: rgba(255,255,255,0.4); max-width: 280px;
+  }
+  .footer-col h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none; font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-contact-item {
+    font-size: 0.83rem; line-height: 1.6;
+    color: rgba(255,255,255,0.45); margin-bottom: 8px;
+  }
+  .footer-contact-item strong { color: rgba(255,255,255,0.7); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    max-width: 1280px; margin: 0 auto;
+    padding: 20px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+  .footer-legal { display: flex; gap: 20px; }
+  .footer-legal a { font-size: 0.75rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .accessories-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .featured-grid { gap: 36px; }
+  }
+  @media (max-width: 768px) {
+    .header-top { padding: 0 20px; gap: 16px; }
+    nav { display: none; }
+    .header-search { max-width: none; flex: 1; }
+    .featured-grid { grid-template-columns: 1fr; }
+    .product-grid { grid-template-columns: 1fr; }
+    .configs-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .accessories-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; padding: 40px 20px 32px; }
+    .section { padding: 48px 20px; }
+    .category-hero { padding: 56px 20px 52px; }
+    .purpose-inner { padding: 16px 20px; }
+    .key-features-mini { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+    .hero-stat-divider { display: none; }
+  }
+  @media (max-width: 480px) {
+    .accessories-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .featured-title { font-size: 1.7rem; }
+    .hero-title { font-size: 2rem; }
+  }
+
+  /* ── UTIL ── */
+  .text-gold { color: var(--gold); }
+  .mt-4 { margin-top: 16px; }
+  .flex-gap { display: flex; gap: 12px; align-items: center; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HEADER
+══════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-top">
+    <a href="#" class="logo">
+      <div class="logo-mark">A</div>
+      <span class="logo-text">Apex<span>Armory</span></span>
+    </a>
+
+    <div class="header-search">
+      <span class="search-icon">⌕</span>
+      <input type="text" placeholder="Search rifles, calibers, accessories…">
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#" class="active">Categories</a>
+      <a href="#">Brands</a>
+      <a href="#">About</a>
+      <a href="#" class="header-cta">Find a Dealer</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     CATEGORY HERO
+══════════════════════════════════════ -->
+<section class="category-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="#">Home</a>
+      <span class="sep">›</span>
+      <a href="#">Rifles</a>
+      <span class="sep">›</span>
+      <a href="#">Rimfire</a>
+      <span class="sep">›</span>
+      <span class="current">Tikka T1x</span>
+    </div>
+
+    <div class="hero-badge">Tikka by Beretta Group · Finland</div>
+
+    <h1 class="hero-title">Tikka <em>T1x</em><br>Rifle Collection</h1>
+
+    <p class="hero-desc">
+      Condensed accuracy and character. Every T1x is built to the same exacting standards as the legendary Tikka T3x centerfire platform — delivering world-class rimfire precision for hunting, training, and target shooting.
+    </p>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">4</div>
+        <div class="hero-stat-label">Model Variants</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">2</div>
+        <div class="hero-stat-label">Caliber Options</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">CHF</div>
+        <div class="hero-stat-label">Barrel Technology</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">T3x</div>
+        <div class="hero-stat-label">Stock Compatible</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PURPOSE SELECTOR
+══════════════════════════════════════ -->
+<div class="purpose-wrap">
+  <div class="purpose-inner">
+    <span class="purpose-label">Fit For</span>
+    <button class="purpose-btn active" onclick="selectPurpose(this)">
+      <span class="pb-icon">🎯</span> All Uses
+    </button>
+    <button class="purpose-btn" onclick="selectPurpose(this)">
+      <span class="pb-icon">🏹</span> Small Game Hunting
+    </button>
+    <button class="purpose-btn" onclick="selectPurpose(this)">
+      <span class="pb-icon">🎯</span> Target Practice
+    </button>
+    <button class="purpose-btn" onclick="selectPurpose(this)">
+      <span class="pb-icon">🔄</span> Training Rifle
+    </button>
+    <button class="purpose-btn" onclick="selectPurpose(this)">
+      <span class="pb-icon">🔬</span> Precision Shooting
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     FEATURED PRODUCT
+══════════════════════════════════════ -->
+<div class="featured-section">
+  <div class="section">
+    <div class="section-label">Editor's Top Pick</div>
+    <div class="section-title">Featured Platform</div>
+
+    <div class="featured-grid">
+      <!-- Image -->
+      <div class="featured-image-wrap">
+        <div class="featured-tag">★ Top Pick</div>
+        <img
+          src="https://media.sako.global/image/upload/c_limit,h_3840,w_3840/ar_1.0,c_lpad/f_auto/q_auto/e_trim::/ar_1.5,c_limit,h_600,w_600/f_auto/e_grayscale/c_limit,h_1500,w_1500/q_5/getPublicFile_qiujc3"
+          alt="Tikka T1x MTR"
+          onerror="this.style.display='none'"
+        >
+        <div class="featured-score-badge">
+          <div class="fsb-value">9.2</div>
+          <div class="fsb-label">Spec Score</div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="featured-content">
+        <div class="featured-series">Tikka · Rimfire Series · Finland</div>
+        <h2 class="featured-title">Tikka T1x MTR</h2>
+        <p class="featured-subtitle">Multi-Task Rimfire — .22 LR · 20" Barrel</p>
+
+        <div class="pi-label">★ Best Value Precision Rimfire</div>
+
+        <div class="featured-price">
+          <span class="price-main">$649</span>
+          <span class="price-note">MSRP · Prices vary by retailer</span>
+        </div>
+
+        <div class="key-features-mini">
+          <div class="kfm-item">
+            <span class="kfm-icon">🔩</span>
+            <span class="kfm-text">Cold Hammer-Forged Cr-Mo Barrel</span>
+          </div>
+          <div class="kfm-item">
+            <span class="kfm-icon">⚙️</span>
+            <span class="kfm-text">45° Bolt with Removable Handle</span>
+          </div>
+          <div class="kfm-item">
+            <span class="kfm-icon">🎚️</span>
+            <span class="kfm-text">Adjustable Trigger 1–2 kg</span>
+          </div>
+          <div class="kfm-item">
+            <span class="kfm-icon">🔒</span>
+            <span class="kfm-text">Two-Position Safety System</span>
+          </div>
+          <div class="kfm-item">
+            <span class="kfm-icon">📦</span>
+            <span class="kfm-text">10-Round Detachable Magazine</span>
+          </div>
+          <div class="kfm-item">
+            <span class="kfm-icon">🔗</span>
+            <span class="kfm-text">T3x Stock Compatible</span>
+          </div>
+        </div>
+
+        <div class="score-bars">
+          <div class="score-row">
+            <span class="score-name">Accuracy</span>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:93%"></div></div>
+            <span class="score-val">9.3</span>
+          </div>
+          <div class="score-row">
+            <span class="score-name">Reliability</span>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:90%"></div></div>
+            <span class="score-val">9.0</span>
+          </div>
+          <div class="score-row">
+            <span class="score-name">Value</span>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:92%"></div></div>
+            <span class="score-val">9.2</span>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <a href="#" class="btn-primary">View Full Details →</a>
+          <a href="#compare" class="btn-secondary">Compare Models</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PRODUCT GRID
+══════════════════════════════════════ -->
+<div style="background: var(--cream);">
+  <div class="section">
+    <div class="section-label">All Variants</div>
+    <h2 class="section-title">Tikka T1x Model Range</h2>
+    <p class="section-subtitle">Every T1x variant shares the same Finnish engineering DNA. Choose the configuration that fits your discipline.</p>
+
+    <div class="product-grid">
+
+      <!-- 1: MTR .22 LR -->
+      <div class="product-card">
+        <div class="card-image">
+          <img src="https://media.sako.global/image/upload/c_limit,h_3840,w_3840/ar_1.0,c_lpad/f_auto/q_auto/e_trim::/ar_1.5,c_limit,h_600,w_600/f_auto/e_grayscale/c_limit,h_1500,w_1500/q_5/getPublicFile_qiujc3" alt="T1x MTR" onerror="this.style.display='none'">
+          <div class="card-visual-tags">
+            <span class="vtag vtag-top">Top Pick</span>
+          </div>
+          <div class="card-score-chip"><span class="csc-val">9.2</span><span class="csc-den">/10</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-caliber">.22 LR · Multi-Task</div>
+          <div class="card-name">Tikka T1x MTR</div>
+          <div class="card-config">20" Barrel · Synthetic Stock · RH</div>
+          <div class="card-specs">
+            <span class="spec-chip">20" CHF</span>
+            <span class="spec-chip">10 rd mag</span>
+            <span class="spec-chip">~2.7 kg</span>
+            <span class="spec-chip">Adj. trigger</span>
+          </div>
+          <div class="card-pi pi-best">✦ Best Value</div>
+          <div class="card-footer">
+            <div>
+              <div class="card-price">$649</div>
+              <div class="card-price-sub">MSRP estimate</div>
+            </div>
+            <button class="card-cta">View →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: Hunter .22 LR -->
+      <div class="product-card">
+        <div class="card-image">
+          <img src="https://media.sako.global/image/upload/c_limit,h_3840,w_3840/ar_1.0,c_lpad/f_auto/q_auto/e_trim::/ar_1.5,c_limit,h_600,w_600/f_auto/e_grayscale/c_limit,h_1500,w_1500/q_5/getPublicFile_uodixn" alt="T1x Hunter" onerror="this.style.display='none'">
+          <div class="card-visual-tags">
+            <span class="vtag vtag-rec">Recommended</span>
+          </div>
+          <div class="card-score-chip"><span class="csc-val">8.9</span><span class="csc-den">/10</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-caliber">.22 LR · Hunting</div>
+          <div class="card-name">Tikka T1x Hunter</div>
+          <div class="card-config">20" Barrel · Walnut Stock · RH</div>
+          <div class="card-specs">
+            <span class="spec-chip">20" CHF</span>
+            <span class="spec-chip">10 rd mag</span>
+            <span class="spec-chip">~2.8 kg</span>
+            <span class="spec-chip">Walnut</span>
+          </div>
+          <div class="card-pi pi-good">✦ Good Deal</div>
+          <div class="card-footer">
+            <div>
+              <div class="card-price">$729</div>
+              <div class="card-price-sub">MSRP estimate</div>
+            </div>
+            <button class="card-cta">View →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3: UPR .22 LR -->
+      <div class="product-card">
+        <div class="card-image">
+          <img src="https://media.sako.global/image/upload/c_limit,h_3840,w_3840/ar_1.0,c_lpad/f_auto/q_auto/e_trim::/ar_1.5,c_limit,h_600,w_600/f_auto/e_grayscale/c_limit,h_1500,w_1500/q_5/Tikka_T1x_UPR_a3np5j" alt="T1x UPR" onerror="this.style.display='none'">
+          <div class="card-visual-tags">
+            <span class="vtag vtag-top">Precision</span>
+          </div>
+          <div class="card-score-chip"><span class="csc-val">9.5</span><span class="csc-den">/10</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-caliber">.22 LR · Ultimate Precision</div>
+          <div class="card-name">Tikka T1x UPR</div>
+          <div class="card-config">20" Heavy Barrel · Chassis Stock · RH</div>
+          <div class="card-specs">
+            <span class="spec-chip">20" Heavy CHF</span>
+            <span class="spec-chip">10 rd mag</span>
+            <span class="spec-chip">Chassis</span>
+            <span class="spec-chip">Adj. LOP</span>
+          </div>
+          <div class="card-pi pi-premium">✦ Premium Option</div>
+          <div class="card-footer">
+            <div>
+              <div class="card-price">$1,099</div>
+              <div class="card-price-sub">MSRP estimate</div>
+            </div>
+            <button class="card-cta">View →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4: Ace Target -->
+      <div class="product-card">
+        <div class="card-image">
+          <img src="https://media.sako.global/image/upload/c_limit,h_3840,w_3840/ar_1.0,c_lpad/f_auto/q_auto/e_trim::/ar_1.5,c_limit,h_600,w_600/f_auto/e_grayscale/c_limit,h_1500,w_1500/q_5/Tikka_T1x_Ace_Target_1_hl1ukw" alt="T1x Ace Target" onerror="this.style.display='none'">
+          <div class="card-visual-tags">
+            <span class="vtag vtag-new">New</span>
+          </div>
+          <div class="card-score-chip"><span class="csc-val">9.3</span><span class="csc-den">/10</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-caliber">.22 LR · Target Competition</div>
+          <div class="card-name">T1x Ace Target</div>
+          <div class="card-config">Heavy Barrel · Ergonomic Stock · RH</div>
+          <div class="card-specs">
+            <span class="spec-chip">Heavy CHF</span>
+            <span class="spec-chip">10 rd mag</span>
+            <span class="spec-chip">Customizable</span>
+          </div>
+          <div class="card-pi pi-premium">✦ Premium Option</div>
+          <div class="card-footer">
+            <div>
+              <div class="card-price">$1,249</div>
+              <div class="card-price-sub">MSRP estimate</div>
+            </div>
+            <button class="card-cta">View →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5: MTR .17 HMR -->
+      <div class="product-card">
+        <div class="card-image">
+          <img src="https://media.sako.global/image/upload/c_limit,h_3840,w_3840/ar_1.0,c_lpad/f_auto/q_auto/e_trim::/ar_1.5,c_limit,h_600,w_600/f_auto/e_grayscale/c_limit,h_1500,w_1500/q_5/getPublicFile_qiujc3" alt="T1x MTR .17 HMR" onerror="this.style.display='none'">
+          <div class="card-visual-tags">
+            <span class="vtag vtag-rec">Recommended</span>
+          </div>
+          <div class="card-score-chip"><span class="csc-val">8.8</span><span class="csc-den">/10</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-caliber">.17 HMR · Multi-Task</div>
+          <div class="card-name">Tikka T1x MTR</div>
+          <div class="card-config">20" Barrel · Synthetic Stock · .17 HMR</div>
+          <div class="card-specs">
+            <span class="spec-chip">20" CHF</span>
+            <span class="spec-chip">6 rd mag</span>
+            <span class="spec-chip">~2.7 kg</span>
+            <span class="spec-chip">.17 HMR</span>
+          </div>
+          <div class="card-pi pi-good">✦ Good Deal</div>
+          <div class="card-footer">
+            <div>
+              <div class="card-price">$679</div>
+              <div class="card-price-sub">MSRP estimate</div>
+            </div>
+            <button class="card-cta">View →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6: MTR Left-Hand -->
+      <div class="product-card">
+        <div class="card-image">
+          <img src="https://media.sako.global/image/upload/c_limit,h_3840,w_3840/ar_1.0,c_lpad/f_auto/q_auto/e_trim::/ar_1.5,c_limit,h_600,w_600/f_auto/e_grayscale/c_limit,h_1500,w_1500/q_5/Tikka_T1x_MTR_LH_-_Lifestyle_9_xu3zbl" alt="T1x MTR LH" onerror="this.style.display='none'">
+          <div class="card-score-chip"><span class="csc-val">9.0</span><span class="csc-den">/10</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-caliber">.22 LR · Left Hand</div>
+          <div class="card-name">Tikka T1x MTR LH</div>
+          <div class="card-config">20" Barrel · Synthetic Stock · Left-Hand</div>
+          <div class="card-specs">
+            <span class="spec-chip">20" CHF</span>
+            <span class="spec-chip">10 rd mag</span>
+            <span class="spec-chip">Left-Hand</span>
+          </div>
+          <div class="card-pi pi-best">✦ Best Value</div>
+          <div class="card-footer">
+            <div>
+              <div class="card-price">$669</div>
+              <div class="card-price-sub">MSRP estimate</div>
+            </div>
+            <button class="card-cta">View →</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     KEY FEATURES
+══════════════════════════════════════ -->
+<div class="features-bg">
+  <div class="section">
+    <div class="features-header">
+      <div class="section-label">Engineering Excellence</div>
+      <h2 class="section-title" style="color:var(--white)">What Sets the T1x Apart</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.45)">Every feature of the T1x reflects Tikka's obsession with precision, reliability, and shooter confidence.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <span class="feature-icon">🔩</span>
+        <div class="feature-title">Cold Hammer-Forged Barrel</div>
+        <p class="feature-desc">Highest-grade Cr-Mo alloy barrel produced with Finnish barrel technology. Hand-crowned muzzle and free-floating design delivers exceptional group consistency shot after shot.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <span class="feature-icon">⚙️</span>
+        <div class="feature-title">Smooth Bolt Action</div>
+        <p class="feature-desc">Extremely rigid action with a 45° bolt opening angle, removable bolt handle, and one of the smoothest cycling actions on the rimfire market. Designed for accuracy and easy servicing.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <span class="feature-icon">🎚️</span>
+        <div class="feature-title">Adjustable Trigger System</div>
+        <p class="feature-desc">Single-stage trigger with vertical grooves for grip even with gloves. Pull weight adjustable 1–2 kg through the magazine well. Optional single-set trigger available across all models.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">04</div>
+        <span class="feature-icon">🔒</span>
+        <div class="feature-title">Two-Position Safety</div>
+        <p class="feature-desc">Blocks both the trigger and the bolt handle simultaneously. Clear visual and tactile indicators confirm safe and fire status — no ambiguity in the field.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">05</div>
+        <span class="feature-icon">📐</span>
+        <div class="feature-title">T3x Cross-Platform Ergonomics</div>
+        <p class="feature-desc">Shares identical feel, stock geometry, and ergonomics with the Tikka T3x centerfire. Symmetrical design, checkered grip, and fine finish — ideal for cross-training between calibers.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">06</div>
+        <span class="feature-icon">📦</span>
+        <div class="feature-title">Fiberglass-Reinforced Magazine</div>
+        <p class="feature-desc">Detachable box magazine with fiberglass-reinforced polymer construction. Holds 10 rounds (.22 LR) or 6 rounds (.17 HMR). Flush release prevents accidental drops.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">07</div>
+        <span class="feature-icon">🔇</span>
+        <div class="feature-title">Minimized Recoil &amp; Noise</div>
+        <p class="feature-desc">Rimfire calibers deliver comfortable shooting with significantly reduced noise and recoil versus centerfire — ideal for extended sessions, training, and small-game scenarios.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">08</div>
+        <span class="feature-icon">🔧</span>
+        <div class="feature-title">Tikka Accessory Ecosystem</div>
+        <p class="feature-desc">Wide range of compatible stocks, optic mounts, and accessories through the Tikka accessory world. Modify and adapt the T1x to fit any shooting discipline or ergonomic preference.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     FULL SPECIFICATIONS TABLE
+══════════════════════════════════════ -->
+<div class="specs-section" id="compare">
+  <div class="section">
+    <div class="section-label">Technical Data</div>
+    <h2 class="section-title">Full Specifications</h2>
+    <p class="section-subtitle">Side-by-side comparison across the complete T1x lineup.</p>
+
+    <div class="specs-table-wrap">
+      <table class="specs-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Caliber</th>
+            <th>Barrel Length</th>
+            <th>Overall Length</th>
+            <th>Weight</th>
+            <th>Magazine</th>
+            <th>Trigger</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="this-item">
+            <td>T1x MTR <span class="model-tag">Top Pick</span></td>
+            <td>.22 LR</td>
+            <td>20" (508 mm)</td>
+            <td>40.2" (1021 mm)</td>
+            <td>5.9 lbs (2.7 kg)</td>
+            <td>10 rd detach.</td>
+            <td>Single-stage, 1–2 kg adj.</td>
+            <td>Synthetic Black</td>
+          </tr>
+          <tr>
+            <td>T1x MTR</td>
+            <td>.17 HMR</td>
+            <td>20" (508 mm)</td>
+            <td>40.2" (1021 mm)</td>
+            <td>5.9 lbs (2.7 kg)</td>
+            <td>6 rd detach.</td>
+            <td>Single-stage, 1–2 kg adj.</td>
+            <td>Synthetic Black</td>
+          </tr>
+          <tr>
+            <td>T1x MTR LH</td>
+            <td>.22 LR</td>
+            <td>20" (508 mm)</td>
+            <td>40.2" (1021 mm)</td>
+            <td>5.9 lbs (2.7 kg)</td>
+            <td>10 rd detach.</td>
+            <td>Single-stage, 1–2 kg adj.</td>
+            <td>Synthetic LH</td>
+          </tr>
+          <tr>
+            <td>T1x Hunter</td>
+            <td>.22 LR</td>
+            <td>20" (508 mm)</td>
+            <td>40.2" (1021 mm)</td>
+            <td>6.2 lbs (2.8 kg)</td>
+            <td>10 rd detach.</td>
+            <td>Single-stage, 1–2 kg adj.</td>
+            <td>Walnut Wood</td>
+          </tr>
+          <tr>
+            <td>T1x UPR</td>
+            <td>.22 LR</td>
+            <td>20" Heavy (508 mm)</td>
+            <td>40.9" (1038 mm)</td>
+            <td>7.7 lbs (3.5 kg)</td>
+            <td>10 rd detach.</td>
+            <td>Single-stage, 1–2 kg adj.</td>
+            <td>Chassis / Adj.</td>
+          </tr>
+          <tr>
+            <td>T1x Ace Target</td>
+            <td>.22 LR</td>
+            <td>Heavy CHF</td>
+            <td>Variable</td>
+            <td>~8.0 lbs</td>
+            <td>10 rd detach.</td>
+            <td>Single-stage, adj.</td>
+            <td>Ergonomic Target</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     AVAILABLE CONFIGURATIONS
+══════════════════════════════════════ -->
+<div style="background: var(--white);">
+  <div class="section">
+    <div class="section-label">Build Your T1x</div>
+    <h2 class="section-title">Available Configurations</h2>
+    <p class="section-subtitle">From caliber to stock, the T1x platform is designed to adapt to your needs.</p>
+
+    <div class="configs-grid">
+      <div class="config-card">
+        <span class="config-icon">🎯</span>
+        <div class="config-title">Caliber Options</div>
+        <p class="config-desc">Two rimfire chamberings covering small game, plinking, and precision target work. Each caliber is optimised with purpose-built barrel twist rates and magazine capacities.</p>
+        <div class="config-chips">
+          <span class="config-chip">.22 LR</span>
+          <span class="config-chip">.17 HMR</span>
+        </div>
+      </div>
+
+      <div class="config-card">
+        <span class="config-icon">📏</span>
+        <div class="config-title">Barrel Profiles</div>
+        <p class="config-desc">Standard-profile cold hammer-forged barrels for everyday use, or heavy-contour barrels for sustained precision shooting without heat-induced shift.</p>
+        <div class="config-chips">
+          <span class="config-chip">Standard 20"</span>
+          <span class="config-chip">Heavy 20"</span>
+        </div>
+      </div>
+
+      <div class="config-card">
+        <span class="config-icon">🪵</span>
+        <div class="config-title">Stock Choices</div>
+        <p class="config-desc">Fibreglass-reinforced synthetic for durability in all conditions, traditional Finnish walnut for the classic hunt, or a precision chassis for competition ergonomics.</p>
+        <div class="config-chips">
+          <span class="config-chip">Synthetic</span>
+          <span class="config-chip">Walnut</span>
+          <span class="config-chip">Chassis</span>
+          <span class="config-chip">Target</span>
+        </div>
+      </div>
+
+      <div class="config-card">
+        <span class="config-icon">🤚</span>
+        <div class="config-title">Hand Orientation</div>
+        <p class="config-desc">Right-hand configuration across all models. The T1x MTR is also available in a dedicated left-hand variant with fully mirrored action and stock.</p>
+        <div class="config-chips">
+          <span class="config-chip">Right-Hand</span>
+          <span class="config-chip">Left-Hand (MTR)</span>
+        </div>
+      </div>
+
+      <div class="config-card">
+        <span class="config-icon">🔧</span>
+        <div class="config-title">Trigger Options</div>
+        <p class="config-desc">All T1x models ship with an adjustable single-stage trigger. An optional single-set trigger is available for competition shooters requiring the ultimate in release precision.</p>
+        <div class="config-chips">
+          <span class="config-chip">Standard Single-Stage</span>
+          <span class="config-chip">Single-Set (opt.)</span>
+        </div>
+      </div>
+
+      <div class="config-card">
+        <span class="config-icon">🔗</span>
+        <div class="config-title">T3x Stock Compatibility</div>
+        <p class="config-desc">The T1x receiver shares the same footprint as the T3x, allowing aftermarket and Tikka T3x stocks to be fitted — dramatically expanding customisation options.</p>
+        <div class="config-chips">
+          <span class="config-chip">T3x Stock Fit</span>
+          <span class="config-chip">Aftermarket Compatible</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     RECOMMENDED ACCESSORIES
+══════════════════════════════════════ -->
+<div class="accessories-bg">
+  <div class="section">
+    <div class="section-label">Complete Your Setup</div>
+    <h2 class="section-title">Recommended Accessories</h2>
+    <p class="section-subtitle">Curated accessories matched to the Tikka T1x platform for optimal performance.</p>
+
+    <div class="accessories-grid">
+      <div class="acc-card">
+        <span class="acc-icon">🔭</span>
+        <div class="acc-title">Rimfire Riflescope</div>
+        <p class="acc-desc">A dedicated rimfire scope with parallax set for 50 yds and a fine reticle. The T1x accepts standard 1" and 30mm rings on a Tikka/Weaver base.</p>
+        <div class="acc-price">From $189</div>
+        <button class="acc-btn">Browse Scopes</button>
+      </div>
+
+      <div class="acc-card">
+        <span class="acc-icon">📦</span>
+        <div class="acc-title">Spare Magazine</div>
+        <p class="acc-desc">Genuine Tikka T1x 10-round magazine (.22 LR) or 6-round magazine (.17 HMR). Fiberglass-reinforced with flush release and horizontally-grooved latch.</p>
+        <div class="acc-price">From $49</div>
+        <button class="acc-btn">Browse Magazines</button>
+      </div>
+
+      <div class="acc-card">
+        <span class="acc-icon">🧹</span>
+        <div class="acc-title">Cleaning Kit</div>
+        <p class="acc-desc">Caliber-specific rimfire cleaning rods, bronze brushes, cotton patches, and solvent. Maintains barrel accuracy and prevents lead fouling in CHF rifling.</p>
+        <div class="acc-price">From $29</div>
+        <button class="acc-btn">Browse Kits</button>
+      </div>
+
+      <div class="acc-card">
+        <span class="acc-icon">🎒</span>
+        <div class="acc-title">Rifle Carry Case</div>
+        <p class="acc-desc">Padded rifle case sized for a 20" barreled T1x. Water-resistant, lockable, and suitable for transport and storage in any climate.</p>
+        <div class="acc-price">From $69</div>
+        <button class="acc-btn">Browse Cases</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <a href="#" class="logo">
+        <div class="logo-mark" style="width:32px;height:32px;font-size:16px;">A</div>
+        <span class="logo-text" style="font-size:1.2rem;">Apex<span>Armory</span></span>
+      </a>
+      <p class="footer-brand-desc">
+        An independent firearms aggregator for hunters, competitors, and collectors. Real specs, honest comparisons, and curated product discovery — all in one place.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="#">Bolt-Action Rifles</a></li>
+        <li><a href="#">Semi-Auto Rifles</a></li>
+        <li><a href="#">Rimfire</a></li>
+        <li><a href="#">Optics &amp; Scopes</a></li>
+        <li><a href="#">Ammunition</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Brands</h4>
+      <ul>
+        <li><a href="#">Tikka</a></li>
+        <li><a href="#">Sako</a></li>
+        <li><a href="#">Bergara</a></li>
+        <li><a href="#">Ruger</a></li>
+        <li><a href="#">Browning</a></li>
+        <li><a href="#">All Brands →</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><strong>Support</strong><br>support@apexarmory.com</div>
+      <div class="footer-contact-item"><strong>Dealers</strong><br>dealers@apexarmory.com</div>
+      <div class="footer-contact-item" style="margin-top:12px;">
+        <a href="#" style="color:rgba(255,255,255,0.45);text-decoration:none;">About Us</a><br>
+        <a href="#" style="color:rgba(255,255,255,0.45);text-decoration:none;">How It Works</a><br>
+        <a href="#" style="color:rgba(255,255,255,0.45);text-decoration:none;">Vendor Partners</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 ApexArmory. Product information sourced from manufacturer data. All firearm purchases must comply with applicable federal, state, and local laws. MSRP values are estimates; verify with authorised dealers.</p>
+    <div class="footer-legal">
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+      <a href="#">Legal</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function selectPurpose(btn) {
+    document.querySelectorAll('.purpose-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
