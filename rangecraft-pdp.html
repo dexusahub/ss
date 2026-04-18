@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RangeCraft – T1x MTR Precision Rimfire Rifle</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0F172A;
+    --secondary: #1E293B;
+    --accent: #F97316;
+    --accent2: #3B82F6;
+    --bg: #F8FAFC;
+    --surface: #FFFFFF;
+    --border: #E2E8F0;
+    --text: #111827;
+    --text-muted: #64748B;
+    --text-light: #94A3B8;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --shadow-sm: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+    --shadow-md: 0 4px 16px rgba(15,23,42,0.08), 0 2px 6px rgba(15,23,42,0.04);
+    --shadow-lg: 0 16px 48px rgba(15,23,42,0.12), 0 4px 16px rgba(15,23,42,0.06);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--primary);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 64px;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .logo span { color: var(--accent); }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex: 1;
+  }
+
+  .nav a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+  .header-search {
+    flex: 1;
+    max-width: 340px;
+    position: relative;
+  }
+
+  .header-search input {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 8px 16px 8px 36px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .header-search input::placeholder { color: rgba(255,255,255,0.4); }
+  .header-search input:focus { border-color: rgba(249,115,22,0.5); }
+
+  .header-search svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255,255,255,0.4);
+    width: 16px; height: 16px;
+  }
+
+  .header-icons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .icon-btn {
+    position: relative;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    background: transparent;
+  }
+
+  .icon-btn:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
+  .badge {
+    position: absolute;
+    top: 6px; right: 6px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 16px; height: 16px;
+    border-radius: 99px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 4px;
+  }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 0;
+  }
+
+  .breadcrumb-inner {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .breadcrumb-inner a:hover { color: var(--accent); }
+  .breadcrumb-inner .sep { color: var(--border); }
+  .breadcrumb-inner .current { color: var(--text); font-weight: 500; }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    padding: 48px 0;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── HERO / PRODUCT ── */
+  .hero-section {
+    background: var(--surface);
+    padding: 40px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .product-gallery { position: sticky; top: 80px; }
+
+  .main-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: #F1F5F9;
+    aspect-ratio: 4/3;
+    position: relative;
+  }
+
+  .main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .main-image:hover img { transform: scale(1.03); }
+
+  .main-image-badge {
+    position: absolute;
+    top: 16px; left: 16px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 6px;
+  }
+
+  .thumbnails {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .thumb {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: #F1F5F9;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .thumb.active, .thumb:hover { border-color: var(--accent); }
+
+  .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Product info */
+  .product-info { display: flex; flex-direction: column; gap: 20px; }
+
+  .brand-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(249,115,22,0.08);
+    padding: 5px 12px;
+    border-radius: 6px;
+    width: fit-content;
+  }
+
+  .product-title {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+  }
+
+  .rating-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+  }
+
+  .stars { display: flex; gap: 2px; }
+  .star { color: var(--warning); font-size: 15px; }
+  .star.empty { color: #CBD5E1; }
+
+  .rating-score { font-weight: 700; color: var(--text); }
+  .rating-count { color: var(--text-muted); }
+  .rating-sep { color: var(--border); }
+  .rating-link { color: var(--accent2); font-weight: 500; cursor: pointer; }
+  .rating-link:hover { text-decoration: underline; }
+
+  .price-block { display: flex; flex-direction: column; gap: 4px; }
+
+  .price-label { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); }
+
+  .price-main {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .price-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .price-sub span { color: var(--success); font-weight: 600; }
+
+  .divider { height: 1px; background: var(--border); }
+
+  .spec-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--secondary);
+  }
+
+  .pill-label { color: var(--text-muted); font-weight: 400; margin-right: 2px; }
+
+  .avail-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(16,185,129,0.06);
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .avail-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
+
+  .avail-text strong { color: var(--success); }
+
+  .cta-row { display: flex; flex-direction: column; gap: 10px; }
+
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    letter-spacing: 0.2px;
+  }
+
+  .btn-primary:hover { background: #EA6B0E; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(249,115,22,0.3); }
+
+  .btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--surface);
+    color: var(--primary);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+  }
+
+  .btn-secondary:hover { border-color: var(--primary); background: var(--bg); }
+
+  .shipping-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  .ship-row { display: flex; align-items: center; gap: 8px; }
+  .ship-row svg { color: var(--accent2); flex-shrink: 0; }
+  .ship-row strong { color: var(--text); }
+
+  /* ── COMPARE PRICES ── */
+  .compare-section { background: var(--surface); }
+
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+  }
+
+  .price-table thead tr { background: var(--primary); }
+
+  .price-table th {
+    padding: 14px 18px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    text-align: left;
+  }
+
+  .price-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  .price-table tbody tr:last-child { border-bottom: none; }
+  .price-table tbody tr:hover { background: var(--bg); }
+
+  .price-table td {
+    padding: 14px 18px;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+
+  .seller-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .seller-logo {
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .seller-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: var(--warning);
+  }
+
+  .seller-rating span { color: var(--text-muted); font-size: 12px; }
+
+  .condition-badge {
+    display: inline-flex;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 99px;
+    background: rgba(16,185,129,0.1);
+    color: var(--success);
+  }
+
+  .condition-badge.used {
+    background: rgba(245,158,11,0.1);
+    color: var(--warning);
+  }
+
+  .table-price {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .table-price.best { color: var(--success); }
+
+  .btn-table {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-table:hover { background: var(--accent); }
+  .btn-table.accent { background: var(--accent); }
+  .btn-table.accent:hover { background: #EA6B0E; }
+
+  /* ── DETAILS & SPECS ── */
+  .details-section { background: var(--bg); }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .details-desc {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .feat-icon {
+    width: 20px; height: 20px;
+    background: rgba(249,115,22,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .feat-icon svg { width: 10px; height: 10px; color: var(--accent); }
+
+  .spec-table-wrap {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .spec-table-head {
+    background: var(--primary);
+    padding: 16px 20px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .spec-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+  }
+
+  .spec-row:last-child { border-bottom: none; }
+  .spec-row:nth-child(even) { background: var(--bg); }
+
+  .spec-key {
+    flex: 1;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .spec-val {
+    flex: 1;
+    font-weight: 600;
+    color: var(--primary);
+    text-align: right;
+  }
+
+  /* ── PRICE HISTORY ── */
+  .price-history-section { background: var(--surface); }
+
+  .chart-wrap {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    position: relative;
+  }
+
+  .chart-stats {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+
+  .chart-stat { display: flex; flex-direction: column; gap: 2px; }
+
+  .chart-stat-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .chart-stat-val {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .chart-stat-val.low { color: var(--success); }
+  .chart-stat-val.current { color: var(--accent); }
+
+  #priceChart { width: 100%; height: 200px; }
+
+  /* ── COMPARE ITEMS ── */
+  .compare-items-section { background: var(--bg); }
+
+  .compare-scroll { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+
+  .compare-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .compare-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .compare-card.active { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(249,115,22,0.12); }
+
+  .compare-card-img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--bg);
+  }
+
+  .compare-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .compare-card-body { padding: 14px; }
+
+  .compare-card-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .compare-card-title {
+    font-family: var(--font-display);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .compare-card-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 10px;
+  }
+
+  .compare-card-spec {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .compare-card-spec span { font-weight: 500; color: var(--text); }
+
+  .compare-card-price {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+
+  .btn-small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+  }
+
+  .btn-small:hover { background: var(--accent); }
+
+  /* ── EXPERT RATING ── */
+  .expert-section { background: var(--primary); color: #fff; }
+
+  .expert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .expert-score {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .expert-score-num {
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+
+  .expert-score-label { display: flex; flex-direction: column; gap: 4px; }
+
+  .expert-score-label strong {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .expert-score-label span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .rating-bars { display: flex; flex-direction: column; gap: 12px; }
+
+  .rating-bar-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 36px;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .rating-bar-label { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 500; }
+
+  .rating-bar-track {
+    height: 5px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .rating-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 99px;
+    transition: width 1s ease;
+  }
+
+  .rating-bar-val { font-size: 13px; font-weight: 700; color: #fff; text-align: right; }
+
+  .expert-verdict {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+
+  .verdict-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .verdict-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--secondary);
+  }
+
+  .verdict-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .verdict-name { font-weight: 700; font-size: 15px; color: #fff; }
+  .verdict-role { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+  .verdict-quote {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .verdict-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .verdict-tag {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 99px;
+    background: rgba(249,115,22,0.15);
+    color: var(--accent);
+    border: 1px solid rgba(249,115,22,0.25);
+  }
+
+  .btn-verdict {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-verdict:hover { background: #EA6B0E; }
+
+  /* ── REVIEWS ── */
+  .reviews-section { background: var(--bg); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .reviews-summary {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    position: sticky;
+    top: 80px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .reviews-big-score {
+    font-family: var(--font-display);
+    font-size: 60px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 4px;
+  }
+
+  .reviews-total { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+
+  .bar-breakdown { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .bar-track {
+    height: 6px;
+    background: var(--border);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--warning);
+    border-radius: 99px;
+  }
+
+  .reviews-list { display: flex; flex-direction: column; gap: 20px; }
+
+  .review-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+  }
+
+  .review-card:hover { box-shadow: var(--shadow-md); }
+
+  .review-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .review-user { display: flex; align-items: center; gap: 12px; }
+
+  .review-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--bg);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+  .review-name { font-weight: 600; font-size: 14px; color: var(--primary); }
+  .review-date { font-size: 12px; color: var(--text-muted); }
+  .review-title { font-weight: 700; font-size: 15px; color: var(--primary); margin-bottom: 8px; }
+  .review-body { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+
+  .review-verified {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11.5px;
+    color: var(--success);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .load-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+
+  .load-more-btn:hover { border-color: var(--primary); background: var(--bg); }
+
+  /* ── CREATORS ── */
+  .creators-section { background: var(--surface); }
+
+  .creators-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .creators-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+  .video-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+
+  .video-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+  .video-thumb {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--secondary);
+  }
+
+  .video-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .video-card:hover .video-thumb img { transform: scale(1.05); }
+
+  .play-btn {
+    position: absolute;
+    inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(15,23,42,0.4);
+  }
+
+  .play-btn svg {
+    width: 48px; height: 48px;
+    color: #fff;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+    transition: transform 0.2s;
+  }
+
+  .video-card:hover .play-btn svg { transform: scale(1.1); }
+
+  .video-duration {
+    position: absolute;
+    bottom: 10px; right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 4px;
+  }
+
+  .video-body {
+    background: var(--surface);
+    padding: 16px;
+  }
+
+  .video-creator {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .video-title {
+    font-family: var(--font-display);
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+
+  .video-meta { font-size: 12px; color: var(--text-muted); }
+
+  /* ── SIMILAR PRODUCTS ── */
+  .similar-section { background: var(--bg); }
+
+  .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+  .product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .product-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+  .product-card-img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--bg);
+    position: relative;
+  }
+
+  .product-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .product-card:hover .product-card-img img { transform: scale(1.04); }
+
+  .product-card-tag {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: var(--primary);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+
+  .product-card-body { padding: 16px; }
+
+  .product-card-brand {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .product-card-title {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .product-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .product-card-stars { display: flex; gap: 1px; color: var(--warning); font-size: 12px; }
+
+  .product-card-price {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+
+  /* ── RECENTLY VIEWED ── */
+  .recent-section { background: var(--surface); padding-bottom: 56px; }
+
+  .recent-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .recent-card {
+    flex-shrink: 0;
+    width: 180px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .recent-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+  .recent-card-img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+
+  .recent-card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .recent-card-body { padding: 10px 12px; }
+
+  .recent-card-title {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 3px;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .recent-card-price {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.65);
+    padding: 56px 0 32px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand .logo { margin-bottom: 12px; }
+
+  .footer-desc {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 20px;
+  }
+
+  .social-links { display: flex; gap: 8px; }
+
+  .social-btn {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .social-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .footer-col-title {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .footer-links { display: flex; flex-direction: column; gap: 8px; }
+
+  .footer-links a {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.45);
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: rgba(255,255,255,0.85); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* ── MISC ── */
+  .watch-all {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.15s;
+  }
+
+  .watch-all:hover { color: var(--accent); }
+
+  .text-muted { color: var(--text-muted); }
+
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .details-grid { grid-template-columns: 1fr; }
+    .expert-grid { grid-template-columns: 1fr; }
+    .compare-scroll { grid-template-columns: repeat(3, 1fr); }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .nav, .header-search { display: none; }
+    .compare-scroll, .creators-grid { grid-template-columns: 1fr 1fr; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .thumbnails { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">Range<span>Craft</span></div>
+      <nav class="nav">
+        <a href="#">Shop</a>
+        <a href="#">Categories</a>
+        <a href="#">Brands</a>
+        <a href="#">Deals</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="header-search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
+        <input type="text" placeholder="Search rifles, optics, gear…">
+      </div>
+      <div class="header-icons">
+        <button class="icon-btn" aria-label="Account">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="badge">2</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="#">Home</a><span class="sep">›</span>
+      <a href="#">Rifles</a><span class="sep">›</span>
+      <a href="#">Rimfire</a><span class="sep">›</span>
+      <span class="current">RangeCraft T1x MTR</span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO / PRODUCT -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- LEFT: Gallery -->
+      <div class="product-gallery">
+        <div class="main-image" id="mainImgWrap">
+          <span class="main-image-badge">Editor's Pick</span>
+          <img id="mainImg" src="https://picsum.photos/seed/rifle1/800/600" alt="RangeCraft T1x MTR">
+        </div>
+        <div class="thumbnails">
+          <div class="thumb active" onclick="setImg('https://picsum.photos/seed/rifle1/800/600',this)"><img src="https://picsum.photos/seed/rifle1/120/90" alt=""></div>
+          <div class="thumb" onclick="setImg('https://picsum.photos/seed/rifle2/800/600',this)"><img src="https://picsum.photos/seed/rifle2/120/90" alt=""></div>
+          <div class="thumb" onclick="setImg('https://picsum.photos/seed/rifle3/800/600',this)"><img src="https://picsum.photos/seed/rifle3/120/90" alt=""></div>
+          <div class="thumb" onclick="setImg('https://picsum.photos/seed/rifle4/800/600',this)"><img src="https://picsum.photos/seed/rifle4/120/90" alt=""></div>
+          <div class="thumb" onclick="setImg('https://picsum.photos/seed/rifle5/800/600',this)"><img src="https://picsum.photos/seed/rifle5/120/90" alt=""></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div class="product-info">
+        <div>
+          <div class="brand-tag">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Tikka · Finland
+          </div>
+        </div>
+
+        <h1 class="product-title">RangeCraft T1x MTR<br>Precision Rimfire Rifle</h1>
+
+        <div class="rating-row">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <span class="rating-score">4.8</span>
+          <span class="text-muted rating-sep">·</span>
+          <span class="rating-count">214 reviews</span>
+          <span class="text-muted rating-sep">·</span>
+          <span class="rating-link">Q&A (38)</span>
+        </div>
+
+        <div class="price-block">
+          <div class="price-label">Starting from</div>
+          <div class="price-main">$849</div>
+          <div class="price-sub">Compare prices from <span>9 sellers</span> — as low as $799</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="spec-pills">
+          <div class="pill"><span class="pill-label">Caliber</span> .22 LR / .17 HMR</div>
+          <div class="pill"><span class="pill-label">Barrel</span> 20" Cold Hammer-Forged</div>
+          <div class="pill"><span class="pill-label">Weight</span> 6.2 lbs</div>
+          <div class="pill"><span class="pill-label">Trigger</span> 2.2–4.4 lbs adj.</div>
+          <div class="pill"><span class="pill-label">Magazine</span> 10-round detachable</div>
+        </div>
+
+        <div class="avail-block">
+          <div class="avail-dot"></div>
+          <div class="avail-text"><strong>In Stock</strong> at 6 sellers · Ships within 1–3 business days</div>
+        </div>
+
+        <div class="cta-row">
+          <button class="btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Add to Cart — $849
+          </button>
+          <button class="btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Go to Seller
+          </button>
+        </div>
+
+        <div class="shipping-block">
+          <div class="ship-row">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span><strong>Free Shipping</strong> on orders over $500</span>
+          </div>
+          <div class="ship-row">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>FFL Transfer required · <strong>Licensed dealers only</strong></span>
+          </div>
+          <div class="ship-row">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <span>30-day <strong>hassle-free returns</strong></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE ALL PRICES -->
+<section class="section compare-section">
+  <div class="container">
+    <div class="section-title">Compare All Prices</div>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Seller</th>
+          <th>Rating</th>
+          <th>Condition</th>
+          <th>Shipping</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="seller-name"><div class="seller-logo">RC</div>RangeCraft Store</div></td>
+          <td><div class="seller-rating">★★★★★ <span>(4.9 · 3.2k)</span></div></td>
+          <td><span class="condition-badge">New</span></td>
+          <td>Free</td>
+          <td><div class="table-price best">$799</div></td>
+          <td><button class="btn-table accent">Buy Now ↗</button></td>
+        </tr>
+        <tr>
+          <td><div class="seller-name"><div class="seller-logo">GS</div>GunShopper</div></td>
+          <td><div class="seller-rating">★★★★☆ <span>(4.6 · 1.8k)</span></div></td>
+          <td><span class="condition-badge">New</span></td>
+          <td>$12.99</td>
+          <td><div class="table-price">$819</div></td>
+          <td><button class="btn-table">Go to Seller</button></td>
+        </tr>
+        <tr>
+          <td><div class="seller-name"><div class="seller-logo">BG</div>BullseyeGear</div></td>
+          <td><div class="seller-rating">★★★★★ <span>(4.8 · 900)</span></div></td>
+          <td><span class="condition-badge">New</span></td>
+          <td>Free</td>
+          <td><div class="table-price">$839</div></td>
+          <td><button class="btn-table">Go to Seller</button></td>
+        </tr>
+        <tr>
+          <td><div class="seller-name"><div class="seller-logo">PX</div>PrecisionX</div></td>
+          <td><div class="seller-rating">★★★★☆ <span>(4.5 · 620)</span></div></td>
+          <td><span class="condition-badge used">Like New</span></td>
+          <td>$8.99</td>
+          <td><div class="table-price">$765</div></td>
+          <td><button class="btn-table">Go to Seller</button></td>
+        </tr>
+        <tr>
+          <td><div class="seller-name"><div class="seller-logo">FP</div>FieldPoint</div></td>
+          <td><div class="seller-rating">★★★★☆ <span>(4.4 · 440)</span></div></td>
+          <td><span class="condition-badge">New</span></td>
+          <td>Free</td>
+          <td><div class="table-price">$849</div></td>
+          <td><button class="btn-table">Go to Seller</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PRODUCT DETAILS & SPECS -->
+<section class="section details-section">
+  <div class="container">
+    <div class="section-title">Product Details & Specifications</div>
+    <div class="details-grid">
+
+      <div>
+        <p class="details-desc">
+          The RangeCraft T1x MTR (Multi-Task Rimfire) is a Finnish-engineered precision platform built for shooters who refuse to compromise. Sharing its DNA with the legendary T3x centerfire line, the T1x MTR delivers the same ergonomics, trigger feel, and quality craftsmanship in a rimfire format — making it the ideal companion for small-game hunting and target practice alike.
+        </p>
+        <p class="details-desc">
+          Its cold hammer-forged, free-floating barrel is machined from premium Cr-Mo alloy, hand-crowned for muzzle consistency, and threaded to the receiver for repeatable zero retention. The adjustable single-stage trigger is crisp, clean, and tunable through the magazine well without tools.
+        </p>
+        <ul class="feature-list">
+          <li>
+            <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd"/></svg></div>
+            Full-size ergonomics identical to T3x centerfire models — no relearning curve
+          </li>
+          <li>
+            <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd"/></svg></div>
+            Cold hammer-forged Cr-Mo barrel — free-floating for maximum accuracy
+          </li>
+          <li>
+            <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd"/></svg></div>
+            Two-position safety blocks both trigger and bolt handle simultaneously
+          </li>
+          <li>
+            <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd"/></svg></div>
+            Tool-free trigger pull adjustment from 2.2 to 4.4 lbs via magazine well
+          </li>
+          <li>
+            <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd"/></svg></div>
+            Picatinny rail integrated for seamless optics mounting
+          </li>
+          <li>
+            <div class="feat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd"/></svg></div>
+            Synthetic stock with checkered grip — weatherproof and ambidextrous-friendly
+          </li>
+        </ul>
+      </div>
+
+      <div class="spec-table-wrap">
+        <div class="spec-table-head">Technical Specifications</div>
+        <div class="spec-row"><span class="spec-key">Caliber</span><span class="spec-val">.22 LR / .17 HMR</span></div>
+        <div class="spec-row"><span class="spec-key">Action</span><span class="spec-val">Bolt-Action, Detachable Box Mag</span></div>
+        <div class="spec-row"><span class="spec-key">Barrel Length</span><span class="spec-val">20 in (508 mm)</span></div>
+        <div class="spec-row"><span class="spec-key">Overall Length</span><span class="spec-val">39.4 in (1,001 mm)</span></div>
+        <div class="spec-row"><span class="spec-key">Weight (unloaded)</span><span class="spec-val">6.2 lbs (2.8 kg)</span></div>
+        <div class="spec-row"><span class="spec-key">Magazine Capacity</span><span class="spec-val">10 rounds</span></div>
+        <div class="spec-row"><span class="spec-key">Trigger Pull</span><span class="spec-val">2.2–4.4 lbs (adjustable)</span></div>
+        <div class="spec-row"><span class="spec-key">Barrel Twist</span><span class="spec-val">1:16" (.22 LR)</span></div>
+        <div class="spec-row"><span class="spec-key">Safety</span><span class="spec-val">Two-position, trigger & bolt</span></div>
+        <div class="spec-row"><span class="spec-key">Stock Material</span><span class="spec-val">Reinforced Synthetic</span></div>
+        <div class="spec-row"><span class="spec-key">Finish</span><span class="spec-val">Matte Blued / Stainless Steel</span></div>
+        <div class="spec-row"><span class="spec-key">Optic Mount</span><span class="spec-val">Picatinny Rail (11mm)</span></div>
+        <div class="spec-row"><span class="spec-key">Country of Origin</span><span class="spec-val">Finland 🇫🇮</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICE HISTORY -->
+<section class="section price-history-section">
+  <div class="container">
+    <div class="section-title">Price History</div>
+    <div class="chart-wrap">
+      <div class="chart-stats">
+        <div class="chart-stat">
+          <div class="chart-stat-label">Current</div>
+          <div class="chart-stat-val current">$849</div>
+        </div>
+        <div class="chart-stat">
+          <div class="chart-stat-label">All-Time Low</div>
+          <div class="chart-stat-val low">$749</div>
+        </div>
+        <div class="chart-stat">
+          <div class="chart-stat-label">All-Time High</div>
+          <div class="chart-stat-val">$939</div>
+        </div>
+        <div class="chart-stat">
+          <div class="chart-stat-label">Avg. Last 90d</div>
+          <div class="chart-stat-val">$831</div>
+        </div>
+      </div>
+      <canvas id="priceChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE WITH SIMILAR -->
+<section class="section compare-items-section">
+  <div class="container">
+    <div class="section-title">Compare with Similar Items</div>
+    <div class="compare-scroll">
+      <div class="compare-card active">
+        <div class="compare-card-img"><img src="https://picsum.photos/seed/rc1/300/225" alt=""></div>
+        <div class="compare-card-body">
+          <div class="compare-card-tag">Current</div>
+          <div class="compare-card-title">RangeCraft T1x MTR</div>
+          <div class="compare-card-specs">
+            <div class="compare-card-spec">Caliber <span>.22 LR</span></div>
+            <div class="compare-card-spec">Barrel <span>20"</span></div>
+            <div class="compare-card-spec">Weight <span>6.2 lbs</span></div>
+          </div>
+          <div class="compare-card-price">$849</div>
+          <button class="btn-small">Selected ✓</button>
+        </div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-card-img"><img src="https://picsum.photos/seed/rc2/300/225" alt=""></div>
+        <div class="compare-card-body">
+          <div class="compare-card-tag">Alternative</div>
+          <div class="compare-card-title">T1x Hunter Classic</div>
+          <div class="compare-card-specs">
+            <div class="compare-card-spec">Caliber <span>.22 LR</span></div>
+            <div class="compare-card-spec">Barrel <span>22.4"</span></div>
+            <div class="compare-card-spec">Weight <span>6.6 lbs</span></div>
+          </div>
+          <div class="compare-card-price">$749</div>
+          <button class="btn-small">Compare</button>
+        </div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-card-img"><img src="https://picsum.photos/seed/rc3/300/225" alt=""></div>
+        <div class="compare-card-body">
+          <div class="compare-card-tag">Alternative</div>
+          <div class="compare-card-title">T1x UPR Ultimate</div>
+          <div class="compare-card-specs">
+            <div class="compare-card-spec">Caliber <span>.22 LR</span></div>
+            <div class="compare-card-spec">Barrel <span>20"</span></div>
+            <div class="compare-card-spec">Weight <span>7.1 lbs</span></div>
+          </div>
+          <div class="compare-card-price">$1,099</div>
+          <button class="btn-small">Compare</button>
+        </div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-card-img"><img src="https://picsum.photos/seed/rc4/300/225" alt=""></div>
+        <div class="compare-card-body">
+          <div class="compare-card-tag">Alternative</div>
+          <div class="compare-card-title">Ruger Precision Rimfire</div>
+          <div class="compare-card-specs">
+            <div class="compare-card-spec">Caliber <span>.22 LR</span></div>
+            <div class="compare-card-spec">Barrel <span>18"</span></div>
+            <div class="compare-card-spec">Weight <span>6.8 lbs</span></div>
+          </div>
+          <div class="compare-card-price">$529</div>
+          <button class="btn-small">Compare</button>
+        </div>
+      </div>
+      <div class="compare-card">
+        <div class="compare-card-img"><img src="https://picsum.photos/seed/rc5/300/225" alt=""></div>
+        <div class="compare-card-body">
+          <div class="compare-card-tag">Alternative</div>
+          <div class="compare-card-title">CZ 457 Varmint MTR</div>
+          <div class="compare-card-specs">
+            <div class="compare-card-spec">Caliber <span>.22 LR</span></div>
+            <div class="compare-card-spec">Barrel <span>20.5"</span></div>
+            <div class="compare-card-spec">Weight <span>7.2 lbs</span></div>
+          </div>
+          <div class="compare-card-price">$699</div>
+          <button class="btn-small">Compare</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERT RATING & VERDICT -->
+<section class="section expert-section">
+  <div class="container">
+    <div class="section-title" style="color:rgba(255,255,255,0.4)">Expert Rating & Verdict</div>
+    <div class="expert-grid">
+
+      <div>
+        <div class="expert-score">
+          <div class="expert-score-num">9.4</div>
+          <div class="expert-score-label">
+            <strong>Outstanding</strong>
+            <span>RangeCraft Editorial Score</span>
+          </div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">Accuracy</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:96%"></div></div>
+            <div class="rating-bar-val">9.6</div>
+          </div>
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">Build Quality</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:94%"></div></div>
+            <div class="rating-bar-val">9.4</div>
+          </div>
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">Trigger Feel</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:91%"></div></div>
+            <div class="rating-bar-val">9.1</div>
+          </div>
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">Value for Money</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:88%"></div></div>
+            <div class="rating-bar-val">8.8</div>
+          </div>
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">Reliability</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:95%"></div></div>
+            <div class="rating-bar-val">9.5</div>
+          </div>
+          <div class="rating-bar-row">
+            <div class="rating-bar-label">Ergonomics</div>
+            <div class="rating-bar-track"><div class="rating-bar-fill" style="width:93%"></div></div>
+            <div class="rating-bar-val">9.3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="expert-verdict">
+        <div class="verdict-head">
+          <div class="verdict-avatar"><img src="https://picsum.photos/seed/expert/100/100" alt=""></div>
+          <div>
+            <div class="verdict-name">Marcus Lindqvist</div>
+            <div class="verdict-role">Senior Firearms Editor, RangeCraft</div>
+          </div>
+        </div>
+        <div class="verdict-quote">
+          "The T1x MTR doesn't just borrow from the T3x — it earns its place in that lineage. After 1,200 rounds downrange across three weather conditions, this rifle maintained sub-MOA groupings consistently. The trigger is one of the finest I've handled in this price bracket, and the fit-and-finish reflects decades of Finnish gunsmithing heritage. For anyone serious about rimfire training or varmint work, this is the platform."
+        </div>
+        <div class="verdict-tags">
+          <span class="verdict-tag">Sub-MOA Accuracy</span>
+          <span class="verdict-tag">Weather-Proven</span>
+          <span class="verdict-tag">Best-in-Class Trigger</span>
+          <span class="verdict-tag">Training Platform</span>
+        </div>
+        <button class="btn-verdict">
+          Read Full Review
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RATINGS & REVIEWS -->
+<section class="section reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-title">Ratings & Reviews</div>
+    <div class="reviews-grid">
+
+      <div class="reviews-summary">
+        <div class="reviews-big-score">4.8</div>
+        <div class="stars" style="font-size:18px;margin-bottom:6px">★★★★★</div>
+        <div class="reviews-total">Based on 214 verified reviews</div>
+        <div class="bar-breakdown">
+          <div class="bar-row"><span>5★</span><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div><span>168</span></div>
+          <div class="bar-row"><span>4★</span><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div><span>30</span></div>
+          <div class="bar-row"><span>3★</span><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><span>11</span></div>
+          <div class="bar-row"><span>2★</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span>4</span></div>
+          <div class="bar-row"><span>1★</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span>1</span></div>
+        </div>
+        <button class="btn-primary" style="font-size:13px;padding:11px 20px">Write a Review</button>
+      </div>
+
+      <div>
+        <div class="reviews-list">
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-user">
+                <div class="review-avatar"><img src="https://picsum.photos/seed/user1/80/80" alt=""></div>
+                <div>
+                  <div class="review-name">James T.</div>
+                  <div class="review-date">March 14, 2025 · Verified Purchase</div>
+                </div>
+              </div>
+              <div class="review-verified">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.491 4.491 0 01-3.497-1.307 4.491 4.491 0 01-1.307-3.497A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.491 4.491 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd"/></svg>
+                Verified
+              </div>
+            </div>
+            <div class="stars" style="font-size:14px;margin-bottom:8px">★★★★★</div>
+            <div class="review-title">Absolutely unreal accuracy out of the box</div>
+            <div class="review-body">Bought this for rimfire training alongside my centerfire setup and couldn't be happier. First session I was printing cloverleafs at 50 yards with bulk ammo. The trigger breaks like glass — zero creep, zero surprise. Worth every penny.</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-user">
+                <div class="review-avatar"><img src="https://picsum.photos/seed/user2/80/80" alt=""></div>
+                <div>
+                  <div class="review-name">Sarah M.</div>
+                  <div class="review-date">January 28, 2025 · Verified Purchase</div>
+                </div>
+              </div>
+              <div class="review-verified">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.491 4.491 0 01-3.497-1.307 4.491 4.491 0 01-1.307-3.497A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.491 4.491 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd"/></svg>
+                Verified
+              </div>
+            </div>
+            <div class="stars" style="font-size:14px;margin-bottom:8px">★★★★★</div>
+            <div class="review-title">The weight and balance are perfect — no questions asked</div>
+            <div class="review-body">I had concerns about this being a "practice" rifle but it performs like a primary. My 10-year-old and I both shoot it comfortably, and the safety mechanism gives real peace of mind. The stock geometry is identical to my T3x, so transitions are seamless.</div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-user">
+                <div class="review-avatar"><img src="https://picsum.photos/seed/user3/80/80" alt=""></div>
+                <div>
+                  <div class="review-name">Troy K.</div>
+                  <div class="review-date">November 3, 2024 · Verified Purchase</div>
+                </div>
+              </div>
+              <div class="review-verified">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.491 4.491 0 01-3.497-1.307 4.491 4.491 0 01-1.307-3.497A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.491 4.491 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd"/></svg>
+                Verified
+              </div>
+            </div>
+            <div class="stars" style="font-size:14px;margin-bottom:8px">★★★★☆</div>
+            <div class="review-title">Excellent rifle, minor nitpick on magazine fit</div>
+            <div class="review-body">After 500 rounds I noticed the 10-round magazine requires a firm seat on occasion — not a malfunction, just a preference for deliberate loading. Accuracy is phenomenal, action cycles like butter, and the build quality screams premium. Would buy again.</div>
+          </div>
+
+        </div>
+
+        <button class="load-more-btn">
+          Load More Reviews (211)
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT CREATORS SAY -->
+<section class="section creators-section">
+  <div class="container">
+    <div class="creators-header">
+      <div class="section-title" style="margin-bottom:0;flex:1">What Creators Say</div>
+      <div class="watch-all">
+        Watch All
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </div>
+    <div class="creators-grid">
+      <div class="video-card">
+        <div class="video-thumb">
+          <img src="https://picsum.photos/seed/vid1/640/360" alt="">
+          <div class="play-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"/></svg>
+          </div>
+          <div class="video-duration">14:32</div>
+        </div>
+        <div class="video-body">
+          <div class="video-creator">OutdoorEdge Pro</div>
+          <div class="video-title">T1x MTR: 500-Round Endurance Test & Full Review</div>
+          <div class="video-meta">2.4M views · 3 months ago</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb">
+          <img src="https://picsum.photos/seed/vid2/640/360" alt="">
+          <div class="play-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"/></svg>
+          </div>
+          <div class="video-duration">9:18</div>
+        </div>
+        <div class="video-body">
+          <div class="video-creator">Precision Bench</div>
+          <div class="video-title">Is the T1x the Best Budget Training Rifle Under $1K?</div>
+          <div class="video-meta">890K views · 5 months ago</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb">
+          <img src="https://picsum.photos/seed/vid3/640/360" alt="">
+          <div class="play-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"/></svg>
+          </div>
+          <div class="video-duration">22:05</div>
+        </div>
+        <div class="video-body">
+          <div class="video-creator">FieldCraft Hunters</div>
+          <div class="video-title">Small Game Season with the Tikka T1x — Field Performance Breakdown</div>
+          <div class="video-meta">1.1M views · 7 months ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMILAR PRODUCTS -->
+<section class="section similar-section">
+  <div class="container">
+    <div class="section-title">Similar Products You May Like</div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="https://picsum.photos/seed/prod1/400/300" alt="">
+          <div class="product-card-tag">Best Seller</div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-brand">Tikka</div>
+          <div class="product-card-title">T1x Hunter Walnut Stock</div>
+          <div class="product-card-rating">
+            <div class="product-card-stars">★★★★★</div>
+            <span>4.7 (188)</span>
+          </div>
+          <div class="product-card-price">$749</div>
+          <button class="btn-small">View Product</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="https://picsum.photos/seed/prod2/400/300" alt="">
+          <div class="product-card-tag">New</div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-brand">Tikka</div>
+          <div class="product-card-title">T1x Ace Target Competition</div>
+          <div class="product-card-rating">
+            <div class="product-card-stars">★★★★★</div>
+            <span>4.9 (62)</span>
+          </div>
+          <div class="product-card-price">$1,149</div>
+          <button class="btn-small">View Product</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="https://picsum.photos/seed/prod3/400/300" alt="">
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-brand">CZ</div>
+          <div class="product-card-title">CZ 457 Varmint MTR .22 LR</div>
+          <div class="product-card-rating">
+            <div class="product-card-stars">★★★★☆</div>
+            <span>4.6 (341)</span>
+          </div>
+          <div class="product-card-price">$699</div>
+          <button class="btn-small">View Product</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">
+          <img src="https://picsum.photos/seed/prod4/400/300" alt="">
+          <div class="product-card-tag">Sale</div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-brand">Ruger</div>
+          <div class="product-card-title">Precision Rimfire .22 LR</div>
+          <div class="product-card-rating">
+            <div class="product-card-stars">★★★★☆</div>
+            <span>4.4 (520)</span>
+          </div>
+          <div class="product-card-price">$499</div>
+          <button class="btn-small">View Product</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENTLY VIEWED -->
+<section class="recent-section">
+  <div class="container">
+    <div class="section-title">Recently Viewed</div>
+    <div class="recent-scroll">
+      <div class="recent-card"><div class="recent-card-img"><img src="https://picsum.photos/seed/rv1/240/180" alt=""></div><div class="recent-card-body"><div class="recent-card-title">Leupold VX-5HD 3-15x</div><div class="recent-card-price">$1,199</div></div></div>
+      <div class="recent-card"><div class="recent-card-img"><img src="https://picsum.photos/seed/rv2/240/180" alt=""></div><div class="recent-card-body"><div class="recent-card-title">Tikka T3x Lite .308</div><div class="recent-card-price">$899</div></div></div>
+      <div class="recent-card"><div class="recent-card-img"><img src="https://picsum.photos/seed/rv3/240/180" alt=""></div><div class="recent-card-body"><div class="recent-card-title">Atlas BT10 Bipod</div><div class="recent-card-price">$289</div></div></div>
+      <div class="recent-card"><div class="recent-card-img"><img src="https://picsum.photos/seed/rv4/240/180" alt=""></div><div class="recent-card-body"><div class="recent-card-title">Vortex Viper PST II 5-25</div><div class="recent-card-price">$1,349</div></div></div>
+      <div class="recent-card"><div class="recent-card-img"><img src="https://picsum.photos/seed/rv5/240/180" alt=""></div><div class="recent-card-body"><div class="recent-card-title">MDT ACC Chassis .22</div><div class="recent-card-price">$649</div></div></div>
+      <div class="recent-card"><div class="recent-card-img"><img src="https://picsum.photos/seed/rv6/240/180" alt=""></div><div class="recent-card-body"><div class="recent-card-title">CZ 457 Premium .22 WMR</div><div class="recent-card-price">$829</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Range<span>Craft</span></div>
+        <div class="footer-desc">Your trusted marketplace for premium firearms, optics, and gear. Every product. Every seller. Verified.</div>
+        <div class="social-links">
+          <div class="social-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+          <div class="social-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+          <div class="social-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <div class="footer-links">
+          <a href="#">Rifles</a>
+          <a href="#">Pistols</a>
+          <a href="#">Optics</a>
+          <a href="#">Ammunition</a>
+          <a href="#">Accessories</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Brands</div>
+        <div class="footer-links">
+          <a href="#">Tikka</a>
+          <a href="#">Sako</a>
+          <a href="#">Ruger</a>
+          <a href="#">CZ</a>
+          <a href="#">Leupold</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <div class="footer-links">
+          <a href="#">Help Center</a>
+          <a href="#">FFL Transfer Guide</a>
+          <a href="#">Returns & Warranty</a>
+          <a href="#">Shipping Policy</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <div class="footer-links">
+          <a href="#">About RangeCraft</a>
+          <a href="#">Editorial Standards</a>
+          <a href="#">Sell on RangeCraft</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 RangeCraft. All rights reserved. Firearms sales subject to applicable federal, state, and local laws.</span>
+      <span>🔒 Secure Checkout · PCI Compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Thumbnail switcher
+  function setImg(src, el) {
+    document.getElementById('mainImg').src = src;
+    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // Price History Chart
+  (function() {
+    const canvas = document.getElementById('priceChart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * dpr;
+    canvas.height = 200 * dpr;
+    ctx.scale(dpr, dpr);
+
+    const W = rect.width;
+    const H = 200;
+    const pad = { top: 20, right: 20, bottom: 40, left: 50 };
+
+    const dataPoints = [
+      { label: 'Jan', price: 899 },
+      { label: 'Feb', price: 879 },
+      { label: 'Mar', price: 919 },
+      { label: 'Apr', price: 939 },
+      { label: 'May', price: 889 },
+      { label: 'Jun', price: 849 },
+      { label: 'Jul', price: 799 },
+      { label: 'Aug', price: 819 },
+      { label: 'Sep', price: 749 },
+      { label: 'Oct', price: 789 },
+      { label: 'Nov', price: 829 },
+      { label: 'Dec', price: 849 }
+    ];
+
+    const minP = 700, maxP = 1000;
+    const chartW = W - pad.left - pad.right;
+    const chartH = H - pad.top - pad.bottom;
+
+    function xPos(i) { return pad.left + (i / (dataPoints.length - 1)) * chartW; }
+    function yPos(p) { return pad.top + (1 - (p - minP) / (maxP - minP)) * chartH; }
+
+    // Grid lines
+    ctx.strokeStyle = '#E2E8F0';
+    ctx.lineWidth = 1;
+    [750, 800, 850, 900, 950].forEach(p => {
+      const y = yPos(p);
+      ctx.beginPath();
+      ctx.moveTo(pad.left, y);
+      ctx.lineTo(W - pad.right, y);
+      ctx.stroke();
+      ctx.fillStyle = '#94A3B8';
+      ctx.font = '11px DM Sans, sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText('$' + p, pad.left - 6, y + 4);
+    });
+
+    // Gradient fill
+    const grad = ctx.createLinearGradient(0, pad.top, 0, H - pad.bottom);
+    grad.addColorStop(0, 'rgba(249,115,22,0.15)');
+    grad.addColorStop(1, 'rgba(249,115,22,0)');
+    ctx.beginPath();
+    dataPoints.forEach((d, i) => {
+      i === 0 ? ctx.moveTo(xPos(i), yPos(d.price)) : ctx.lineTo(xPos(i), yPos(d.price));
+    });
+    ctx.lineTo(xPos(dataPoints.length - 1), H - pad.bottom);
+    ctx.lineTo(xPos(0), H - pad.bottom);
+    ctx.closePath();
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // Line
+    ctx.beginPath();
+    dataPoints.forEach((d, i) => {
+      i === 0 ? ctx.moveTo(xPos(i), yPos(d.price)) : ctx.lineTo(xPos(i), yPos(d.price));
+    });
+    ctx.strokeStyle = '#F97316';
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+
+    // Dots + labels
+    dataPoints.forEach((d, i) => {
+      const x = xPos(i), y = yPos(d.price);
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, Math.PI * 2);
+      ctx.fillStyle = i === dataPoints.length - 1 ? '#F97316' : '#fff';
+      ctx.strokeStyle = '#F97316';
+      ctx.lineWidth = 2;
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#64748B';
+      ctx.font = '11px DM Sans, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(d.label, x, H - pad.bottom + 18);
+    });
+  })();
+
+  // Animate rating bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.rating-bar-fill').forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = w; }, 100);
+        });
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const expertSection = document.querySelector('.expert-section');
+  if (expertSection) observer.observe(expertSection);
+</script>
+</body>
+</html>
