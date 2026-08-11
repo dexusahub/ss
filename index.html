@@ -102,6 +102,36 @@
     color: var(--muted);
     margin-bottom: 18px;
   }
+  .price-highlight {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    background: linear-gradient(180deg, #fffaf1 0%, #f3eadc 100%);
+    border: 1px solid rgba(73,84,47,0.14);
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(24, 33, 27, 0.05);
+  }
+  .price-highlight-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .price-highlight-value {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 36px);
+    line-height: 1;
+    color: var(--orange-deep);
+  }
+  .price-highlight-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--olive-deep);
+    letter-spacing: 0.04em;
+  }
   .lead {
     font-size: 18px;
     max-width: 46ch;
@@ -505,9 +535,13 @@
         </aside>
         <div class="hero-copy">
           <div class="kicker">ScopeCompare | Precision Optics Price Tracker</div>
-          <h1>Athlon Ares ETR UHD 4.5-30x56 APRS1 FFP IR MIL</h1>
-          <div class="subline">SKU 212100 | UPC 813869021211 | MSRP $1,437.49</div>
-          <p class="lead">A calmer, easier-to-read comparison page for shoppers deciding between live retailer pricing, official Athlon documents, and official product media.</p>
+          <h1>Athlon Ares ETR UHD<br>4.5-30x56 APRS1 FFP IR MIL</h1>
+          <div class="subline">SKU 212100 | UPC 813869021211</div>
+          <div class="price-highlight">
+            <div class="price-highlight-label">Current Best Price from</div>
+            <div class="price-highlight-value">$674.99</div>
+            <div class="price-highlight-meta">Warehouse Liquidation Sale | code WLS10</div>
+          </div>
           <div class="stats">
             <div class="stat"><div class="stat-label">Lowest Price Today</div><div class="stat-value good">$674.99 with code</div></div>
             <div class="stat"><div class="stat-label">Active Sellers</div><div class="stat-value">4 to 6 retailers</div></div>
@@ -529,7 +563,7 @@
     <section id="price-comparison" class="section-card">
       <div class="section-head">
         <div>
-          <div class="section-tag">Section 01</div>
+          <div class="section-tag"></div>
           <h2 class="section-title">Price Comparison</h2>
         </div>
       </div>
@@ -583,11 +617,45 @@
           <div class="history-card">
             <div class="block-title">Price History</div>
             <p class="intro" style="margin-bottom:0;">Placed directly after the retailer table so visitors can judge whether today&rsquo;s price looks strong versus recent levels.</p>
-            <div class="history-bars">
-              <div class="history-row"><span>Jan</span><div class="history-track"><div class="history-fill" style="width:92%;"></div></div><span>$949</span></div>
-              <div class="history-row"><span>Feb</span><div class="history-track"><div class="history-fill" style="width:88%;"></div></div><span>$899</span></div>
-              <div class="history-row"><span>Mar</span><div class="history-track"><div class="history-fill" style="width:80%;"></div></div><span>$819</span></div>
-              <div class="history-row"><span>Apr</span><div class="history-track"><div class="history-fill" style="width:66%;"></div></div><span>$675</span></div>
+            <div style="margin-top:16px; overflow:hidden; border:1px solid var(--line); border-radius:16px; background:linear-gradient(180deg,#fffdf8 0%,#f7efe1 100%); padding:14px;">
+              <svg viewBox="0 0 640 250" width="100%" aria-label="Price history graph showing a downward trend from $949 to $675">
+                <defs>
+                  <linearGradient id="priceArea" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#eecfb7" stop-opacity="0.55"></stop>
+                    <stop offset="100%" stop-color="#eecfb7" stop-opacity="0.05"></stop>
+                  </linearGradient>
+                </defs>
+                <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#7a7a69">
+                  <line x1="40" y1="34" x2="610" y2="34" stroke="#d9d7cf"></line>
+                  <line x1="40" y1="88" x2="610" y2="88" stroke="#d9d7cf"></line>
+                  <line x1="40" y1="142" x2="610" y2="142" stroke="#d9d7cf"></line>
+                  <line x1="40" y1="196" x2="610" y2="196" stroke="#d9d7cf"></line>
+                  <text x="8" y="38">$950</text>
+                  <text x="8" y="92">$880</text>
+                  <text x="8" y="146">$810</text>
+                  <text x="8" y="200">$740</text>
+                  <text x="40" y="232">Sep</text>
+                  <text x="132" y="232">Oct</text>
+                  <text x="224" y="232">Nov</text>
+                  <text x="316" y="232">Dec</text>
+                  <text x="408" y="232">Jan</text>
+                  <text x="500" y="232">Feb</text>
+                  <text x="592" y="232">Mar</text>
+                </g>
+                <path d="M40,28 L108,46 L176,54 L244,86 L312,118 L380,95 L448,126 L516,173 L610,196 L610,214 L40,214 Z" fill="url(#priceArea)"></path>
+                <path d="M40,28 L108,46 L176,54 L244,86 L312,118 L380,95 L448,126 L516,173 L610,196" fill="none" stroke="#ff7129" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                <g fill="#2f4736" stroke="#fffaf1" stroke-width="3">
+                  <circle cx="40" cy="28" r="7"></circle>
+                  <circle cx="108" cy="46" r="7"></circle>
+                  <circle cx="176" cy="54" r="7"></circle>
+                  <circle cx="244" cy="86" r="7"></circle>
+                  <circle cx="312" cy="118" r="7"></circle>
+                  <circle cx="380" cy="95" r="7"></circle>
+                  <circle cx="448" cy="126" r="7"></circle>
+                  <circle cx="516" cy="173" r="7"></circle>
+                  <circle cx="610" cy="196" r="8" fill="#ff7129"></circle>
+                </g>
+              </svg>
             </div>
           </div>
           <div class="history-summary">
@@ -603,7 +671,7 @@
     <section class="section-card compact-section">
       <div class="section-head">
         <div>
-          <div class="section-tag">Section 02</div>
+          <div class="section-tag"></div>
           <h2 class="section-title">Quick Verdict and Specifications</h2>
         </div>
       </div>
@@ -643,33 +711,7 @@
     <section class="section-card compact-section">
       <div class="section-head">
         <div>
-          <div class="section-tag">Section 03</div>
-          <h2 class="section-title">Ratings and Reviews</h2>
-        </div>
-      </div>
-      <div class="section-body review-overview">
-        <div class="score-card">
-          <div class="score-big">4.6</div>
-          <div class="score-sub">Average shopper score</div>
-        </div>
-        <div class="side-panel">
-          <h3>Review Snapshot</h3>
-          <div class="review-bars">
-            <div class="review-row"><span>5 star</span><div class="review-track"><div class="review-fill" style="width:78%;"></div></div><span>78%</span></div>
-            <div class="review-row"><span>4 star</span><div class="review-track"><div class="review-fill" style="width:15%;"></div></div><span>15%</span></div>
-            <div class="review-row"><span>3 star</span><div class="review-track"><div class="review-fill" style="width:5%;"></div></div><span>5%</span></div>
-            <div class="review-row"><span>2 star</span><div class="review-track"><div class="review-fill" style="width:1%;"></div></div><span>1%</span></div>
-            <div class="review-row"><span>1 star</span><div class="review-track"><div class="review-fill" style="width:1%;"></div></div><span>1%</span></div>
-          </div>
-          <p class="intro" style="margin-top:14px;margin-bottom:0;">Buyers and forum-style reviewers consistently point to strong tracking, useful long-range features, and a very competitive value profile. Most criticism centers on weight and size rather than core performance.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-card compact-section">
-      <div class="section-head">
-        <div>
-          <div class="section-tag">Section 04</div>
+          <div class="section-tag"></div>
           <h2 class="section-title">Official Videos and PDFs</h2>
         </div>
       </div>
@@ -699,7 +741,7 @@
     <section class="section-card">
       <div class="section-head">
         <div>
-          <div class="section-tag">Section 05</div>
+          <div class="section-tag"></div>
           <h2 class="section-title">Related Products and Categories</h2>
         </div>
       </div>
@@ -729,7 +771,7 @@
     <section class="section-card">
       <div class="section-head">
         <div>
-          <div class="section-tag">Section 06</div>
+          <div class="section-tag"></div>
           <h2 class="section-title">Related Searches</h2>
         </div>
       </div>
@@ -745,10 +787,39 @@
       </div>
     </section>
 
+    <section class="section-card compact-section">
+      <div class="section-head">
+        <div>
+          <div class="section-tag"></div>
+          <h2 class="section-title">Ratings and Reviews</h2>
+        </div>
+      </div>
+      <div class="section-body review-overview">
+        <div class="score-card">
+          <div class="score-big">4.6</div>
+          <div class="score-sub">Average shopper score</div>
+        </div>
+        <div class="side-panel">
+          <h3>Review Snapshot</h3>
+          <div class="review-bars">
+            <div class="review-row"><span>5 star</span><div class="review-track"><div class="review-fill" style="width:78%;"></div></div><span>78%</span></div>
+            <div class="review-row"><span>4 star</span><div class="review-track"><div class="review-fill" style="width:15%;"></div></div><span>15%</span></div>
+            <div class="review-row"><span>3 star</span><div class="review-track"><div class="review-fill" style="width:5%;"></div></div><span>5%</span></div>
+            <div class="review-row"><span>2 star</span><div class="review-track"><div class="review-fill" style="width:1%;"></div></div><span>1%</span></div>
+            <div class="review-row"><span>1 star</span><div class="review-track"><div class="review-fill" style="width:1%;"></div></div><span>1%</span></div>
+          </div>
+          <p class="intro" style="margin-top:14px;margin-bottom:0;">Buyers and forum-style reviewers consistently point to strong tracking, useful long-range features, and a very competitive value profile. Most criticism centers on weight and size rather than core performance.</p>
+        </div>
+        <div class="faq-card"><strong>"Tracks reliably and feels far more expensive than it is."</strong><p>Owners consistently praise the turret feel, repeatable dialing, and overall long-range usability for the money.</p></div>
+        <div class="faq-card"><strong>"Glass is strong for this price bracket, especially once you start comparing side by side."</strong><p>Reviewers usually frame the optic as a value-heavy performer that closes a lot of the gap to pricier alternatives.</p></div>
+        <div class="faq-card"><strong>"The main tradeoff is weight, not capability."</strong><p>Most weaker feedback is about size and carry weight rather than tracking, reticle function, or feature depth.</p></div>
+      </div>
+    </section>
+
     <section class="section-card">
       <div class="section-head">
         <div>
-          <div class="section-tag">Section 07</div>
+          <div class="section-tag"></div>
           <h2 class="section-title">Frequently Asked Questions</h2>
         </div>
       </div>
@@ -765,19 +836,19 @@
     <section class="section-card">
       <div class="section-head">
         <div>
-          <div class="section-tag">Recently Viewed</div>
+          <div class="section-tag"></div>
           <h2 class="section-title">Keep Comparing</h2>
         </div>
-      </div>
-      <div class="section-body">
-        <div class="recent-grid">
-          <a class="link-card" href="#"><div class="link-meta">Recently Viewed</div><strong>Vortex Viper PST Gen2 5-25x50</strong><p>Common value comparison against the Ares ETR.</p><span class="arrow-link">View Again</span></a>
-          <a class="link-card" href="#"><div class="link-meta">Recently Viewed</div><strong>Athlon Cronus BTR Gen2 4.5-29x56</strong><p>Higher-tier Athlon optic for buyers stepping up.</p><span class="arrow-link">View Again</span></a>
-          <a class="link-card" href="#"><div class="link-meta">Recently Viewed</div><strong>Bushnell Match Pro ED 5-30x56</strong><p>Another precision-first optic often cross-shopped here.</p><span class="arrow-link">View Again</span></a>
-          <a class="link-card" href="#"><div class="link-meta">Recently Viewed</div><strong>Nightforce ATACR 5-25x56</strong><p>Premium benchmark to frame the value gap.</p><span class="arrow-link">View Again</span></a>
         </div>
-      </div>
-    </section>
+        <div class="section-body">
+          <div class="recent-grid">
+          <a class="link-card" href="https://athlonoptics.com/product/ares-etr-gen2-uhd-4-5-30x56-aprs12-ffp-ir-mil/" target="_blank" rel="noopener"><img src="https://athlonoptics.com/storage/2024/10/212114-Ares-ETR-Gen2-UHD-4.5-30x56-APRS12-FFP-IR-MIL-Gray-BG-ISO-600x600.png" alt="Athlon Ares ETR Gen2 official product image" style="width:100%; aspect-ratio:1; object-fit:contain; border-radius:14px; border:1px solid var(--line); margin-bottom:12px; background:#fffdf8; padding:12px;"><div class="link-meta">Recently Viewed</div><strong>Athlon Ares ETR Gen2 UHD 4.5-30x56</strong><p>Official Athlon successor model for buyers comparing the next-generation option.</p><span class="arrow-link">View Again</span></a>
+          <a class="link-card" href="https://athlonoptics.com/product/cronus-btr-gen2-uhd-4-5-29x56-aprs1-ffp-ir-mil/" target="_blank" rel="noopener"><img src="https://athlonoptics.com/wp-content/uploads/2020/11/210114-Cronus-BTR-GEN2-UHD-4.5-29x56-APRS1-FFP-IR-MIL-Gray-BG-ISO-600x600.png" alt="Athlon Cronus BTR Gen2 official product image" style="width:100%; aspect-ratio:1; object-fit:contain; border-radius:14px; border:1px solid var(--line); margin-bottom:12px; background:#fffdf8; padding:12px;"><div class="link-meta">Recently Viewed</div><strong>Athlon Cronus BTR Gen2 UHD 4.5-29x56</strong><p>Higher-tier Athlon optic for buyers stepping up in the same official ecosystem.</p><span class="arrow-link">View Again</span></a>
+          <a class="link-card" href="https://athlonoptics.com/product/ares-etr-uhd-3-18x50-aprs6-ffp-ir-mil/" target="_blank" rel="noopener"><img src="https://athlonoptics.com/wp-content/uploads/2020/11/212106-Ares-ETR-UHD-3-18x50-APRS6-FFP-IR-MIL-Gray-BG-ISO-600x600.png" alt="Athlon Ares ETR 3-18x50 official product image" style="width:100%; aspect-ratio:1; object-fit:contain; border-radius:14px; border:1px solid var(--line); margin-bottom:12px; background:#fffdf8; padding:12px;"><div class="link-meta">Recently Viewed</div><strong>Athlon Ares ETR UHD 3-18x50</strong><p>Official Athlon alternative for shoppers who want a shorter long-range configuration.</p><span class="arrow-link">View Again</span></a>
+          <a class="link-card" href="https://athlonoptics.com/product/ares-hlr-2-5-15x42-30mm-sfp-ir-ahmc1-fiber-dot-moa/" target="_blank" rel="noopener"><img src="https://athlonoptics.com/wp-content/uploads/2024/02/212130-Ares-HLR-2.5-15x42-AHMC1-Fiber-Dot-SFP-IR-MOA-Gray-BG-ISO-600x600.png" alt="Athlon Ares HLR official product image" style="width:100%; aspect-ratio:1; object-fit:contain; border-radius:14px; border:1px solid var(--line); margin-bottom:12px; background:#fffdf8; padding:12px;"><div class="link-meta">Recently Viewed</div><strong>Athlon Ares HLR 2.5-15x42</strong><p>Official Athlon lightweight alternative for buyers comparing a more compact field setup.</p><span class="arrow-link">View Again</span></a>
+          </div>
+        </div>
+      </section>
   </div>
 </div>
 <div class="footer">
